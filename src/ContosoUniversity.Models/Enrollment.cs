@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using CU.SharedKernel.Base;
+using CU.SharedKernel.Interfaces;
+using System.ComponentModel.DataAnnotations;
 
 namespace ContosoUniversity.Models
 {
@@ -11,6 +13,10 @@ namespace ContosoUniversity.Models
     public class Enrollment
     {
         public int EnrollmentID { get; set; }
+
+        [NotMapped]
+        public override int Id { get { return EnrollmentID; } }
+
         public int CourseID { get; set; }
         public int StudentID { get; set; }
         [DisplayFormat(NullDisplayText = "No grade")]
