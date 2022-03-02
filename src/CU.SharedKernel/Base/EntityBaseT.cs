@@ -1,4 +1,6 @@
-﻿namespace CU.SharedKernel.Base
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace CU.SharedKernel.Base
 {
     public abstract class EntityBaseT<TId>
     {
@@ -8,6 +10,7 @@
         /// </summary>
         public abstract TId Id { get; }
 
+        [NotMapped]
         public List<DomainEventBase> DomainEvents { get; private set; } = new List<DomainEventBase>();
     }
 }

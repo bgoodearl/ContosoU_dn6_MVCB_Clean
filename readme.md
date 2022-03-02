@@ -19,14 +19,21 @@ A parallel solution using .NET Core 3.1 can be found [in GitHub here](https://gi
 
 [Dev Notes](./_docs/CC6__DevNotes.md)<br/>
 
+## IMPORTANT NOTES
+
+### Initial setup after cloning repo or getting code in zip
+
 ## Resource links
 
 [Clean Architecture and related Resource Links](./_docs/CC6_CleanResources.md)<br/>
+[Other Resources](./_docs/CC6_Resources.md)<br/>
 [Tools](./_docs/CC6_Tools.md)<br/>
 
 ## Projects
 
-Project Name                 | Description
--------------                | ------------
-CU.SharedKernel              | Classes shared among multiple app projects
-ContosoUniversity.Models     | Persistent Data Object Models (Domain)
+Project Name                    | Description
+-------------                   | ------------
+CU.SharedKernel                 | Classes shared among multiple app projects
+ContosoUniversity.Models        | Persistent Data Object Models (Domain)
+CU.Application.Common           | Interfaces allowing use of the Repository
+CU.Application.Shared           | Interfaces and Classes shared among multiple CU projects

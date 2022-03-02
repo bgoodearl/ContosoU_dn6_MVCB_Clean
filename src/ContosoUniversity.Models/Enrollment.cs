@@ -10,7 +10,7 @@ namespace ContosoUniversity.Models
         A, B, C, D, F
     }
 
-    public class Enrollment
+    public class Enrollment : EntityBaseT<int>, IHasDomainEvents
     {
         public int EnrollmentID { get; set; }
 
