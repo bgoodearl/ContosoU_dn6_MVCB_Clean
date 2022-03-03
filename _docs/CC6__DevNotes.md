@@ -20,6 +20,8 @@
             See changes in SchoolDbContext with new method InitializeDbSets()<br/>
             Added Demo.Components project w/Blazor demo components<br/>
             Wired up Blazor Server<br/>
+            Migrated ContosoUniversity.Components from .NET Core 3.1 Clean app<br/>
+            Wired up CU Blazor components for Courses<br/>
 		</td>
     </tr>
     <tr>

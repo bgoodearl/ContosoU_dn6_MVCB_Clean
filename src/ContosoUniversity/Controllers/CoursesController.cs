@@ -24,15 +24,16 @@ namespace ContosoUniversity.Controllers
         protected ILogger<CoursesController> Logger { get; }
         #endregion read-only variables
 
-        [Route("~/[Controller]")]
-        public async Task<IActionResult> Index(int? id)
+        [Route("~/[Controller]/{mode?}/{id?}")]
+        public async Task<IActionResult> Index(int? mode, int? id)
         {
             using (ISchoolRepository repo = GetSchoolRepository())
             {
                 CUSVMC.CoursesViewModel model = new CUSVMC.CoursesViewModel
                 {
+                    CourseID = id,
                     CourseList = await repo.GetCourseListItemsNoTrackingAsync(),
-                    ViewMode = -1
+                    ViewMode = mode.HasValue ? mode.Value : 0
                 };
                 return View(model);
             }
@@ -95,7 +96,7 @@ namespace ContosoUniversity.Controllers
                             }
                             else
                             {
-                                return RedirectToAction(nameof(Index));
+                                return RedirectToAction(nameof(Index), new { mode = -1 });
                             }
                         }
                     }
@@ -185,7 +186,7 @@ namespace ContosoUniversity.Controllers
                             }
                             else
                             {
-                                return RedirectToAction(nameof(Index));
+                                return RedirectToAction(nameof(Index), new { mode = -1 });
                             }
                         }
                     }
@@ -262,7 +263,7 @@ namespace ContosoUniversity.Controllers
                 else
                 {
                     Logger.LogInformation($"Courses-Delete CourseID = {course.CourseID}");
-                    return RedirectToAction("Index");
+                    return RedirectToAction(nameof(Index), new { mode = -1 });
                 }
             }
 

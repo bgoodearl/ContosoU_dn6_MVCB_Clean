@@ -72,6 +72,7 @@ See code in TestFixture.GetISchoolDbContext(ITestOutputHelper testOutputHelper) 
 Project Name                    | Description
 -------------                   | ------------
 ContosoUniversity               | Contoso University Web Application
+ContosoUniversity.Components    | Blazor components for ContosoUniversity
 ContosoUniversity.Models        | Persistent Data Object Models (Domain)
 CU.Application                  | Application specific code
 CU.Application.Common           | Interfaces allowing use of the Repository
