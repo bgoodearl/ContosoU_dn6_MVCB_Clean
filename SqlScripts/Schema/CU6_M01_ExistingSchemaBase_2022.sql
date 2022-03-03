@@ -1,4 +1,13 @@
-﻿IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+﻿USE ContosoUniversity22; --Database used for tests
+GO
+
+Declare @UseMigrationHistory bit = 0;
+--Declare @UseMigrationHistory bit = 1;
+DECLARE @CurrentMigration [nvarchar](max)
+
+If ISNULL(@UseMigrationHistory,0) = 1 Begin
+
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
 BEGIN
     CREATE TABLE [__EFMigrationsHistory] (
         [MigrationId] nvarchar(150) NOT NULL,
@@ -6,6 +15,7 @@ BEGIN
         CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
     );
 END;
+End;
 GO
 
 BEGIN TRANSACTION;
@@ -65,8 +75,10 @@ GO
 CREATE INDEX [IX_Department_InstructorID] ON [Department] ([InstructorID]);
 GO
 
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NOT NULL BEGIN
 INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
 VALUES (N'20220303023706_CU6_M01_ExistingSchemaBase_2022', N'6.0.2');
+END;
 GO
 
 COMMIT;
