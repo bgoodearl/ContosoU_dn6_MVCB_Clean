@@ -34,9 +34,10 @@ A parallel solution using .NET Core 3.1 can be found [in GitHub here](https://gi
 
 Project Name                    | Description
 -------------                   | ------------
-CU.SharedKernel                 | Classes shared among multiple app projects
 ContosoUniversity.Models        | Persistent Data Object Models (Domain)
 CU.Application                  | Application specific code
 CU.Application.Common           | Interfaces allowing use of the Repository
 CU.Application.Shared           | Interfaces and Classes shared among multiple CU projects
 CU.Infrastructure               | Infrastructure, including Entity Framework DbContext, Repositories, and Migrations
+CU.SharedKernel                 | Classes shared among multiple app projects
+CU.ApplicationIntegrationTests  | 
