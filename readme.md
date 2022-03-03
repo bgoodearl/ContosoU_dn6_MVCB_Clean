@@ -23,6 +23,10 @@ A parallel solution using .NET Core 3.1 can be found [in GitHub here](https://gi
 
 ### Initial setup after cloning repo or getting code in zip
 
+
+Copy `...\_ConfigSource\src\tests\CU.ApplicationIntegrationTests\appsettings.LocalTesting.json`
+to `...\src\tests\CU.ApplicationIntegrationTests` and modify connection string for your environment.
+
 ## Resource links
 
 [Clean Architecture and related Resource Links](./_docs/CC6_CleanResources.md)<br/>
