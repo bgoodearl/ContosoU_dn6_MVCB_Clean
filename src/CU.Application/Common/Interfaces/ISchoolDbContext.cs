@@ -7,7 +7,7 @@ namespace CU.Application.Common.Interfaces
     {
         DbSet<Course> Courses { get; }
         DbSet<Department> Departments { get; }
-        //DbSet<Enrollment> Enrollments { get; }
+        DbSet<Enrollment> Enrollments { get; }
         DbSet<Instructor> Instructors { get; }
         DbSet<OfficeAssignment> OfficeAssignments { get; }
         DbSet<Student> Students { get; }

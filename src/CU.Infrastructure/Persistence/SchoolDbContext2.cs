@@ -28,6 +28,14 @@ namespace CU.Infrastructure.Persistence
                     .HasForeignKey(d => d.InstructorID).IsRequired(false).OnDelete(DeleteBehavior.Restrict);
             });
 
+            modelBuilder.Entity<Enrollment>(e =>
+            {
+                e.HasKey(c => c.EnrollmentID);
+                e.ToTable("Enrollment");
+                e.HasOne(e => e.Course).WithMany(c => c.Enrollments).HasForeignKey(e => e.CourseID).OnDelete(DeleteBehavior.Restrict);
+                e.HasOne(e => e.Student).WithMany(s => s.Enrollments).HasForeignKey(e => e.StudentID).OnDelete(DeleteBehavior.Restrict);
+            });
+
             modelBuilder.Entity<Instructor>(e =>
             {
                 e.HasKey(c => c.ID);

@@ -1,4 +1,5 @@
-﻿using CU.SharedKernel.Base;
+﻿using Ardalis.GuardClauses;
+using CU.SharedKernel.Base;
 using CU.SharedKernel.Interfaces;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -7,6 +8,21 @@ namespace ContosoUniversity.Models
 {
     public class Instructor : EntityBaseT<int>, IHasDomainEvents
     {
+        private Instructor()
+        {
+
+        }
+
+        public Instructor(string lastName, string firstMidName, DateTime hireDate)
+        {
+            Guard.Against.NullOrWhiteSpace(lastName, nameof(lastName));
+            Guard.Against.NullOrWhiteSpace(firstMidName, nameof(firstMidName));
+            Guard.Against.OutOfSQLDateRange(hireDate, nameof(hireDate));
+            LastName = lastName;
+            FirstMidName = firstMidName;
+            HireDate = hireDate;
+        }
+
         public int ID { get; set; }
 
         [NotMapped]

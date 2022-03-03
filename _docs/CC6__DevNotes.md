@@ -24,6 +24,10 @@
             Added Infrastructure DependencyInjection<br/>
             Added CU.ApplicationIntegrationTests, first test:
             CanGetCoursesAsync - using ISchoolDbContext<br/>
+            Added private constructors and public constructors for
+            persistent objects<br/>
+            Added persistent Enrollment w/links to Course and Student<br/>
+            Added migration CU6_M02_AddEnrollment, tweaked SQL scripts<br/>
 		</td>
     </tr>
     <tr>

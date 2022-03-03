@@ -34,7 +34,7 @@ namespace CU.Infrastructure.Persistence
 
         public DbSet<Course> Courses => Set<Course>();
         public DbSet<Department> Departments => Set<Department>();
-        //public DbSet<Enrollment> Enrollments => Set<Enrollment>();
+        public DbSet<Enrollment> Enrollments => Set<Enrollment>();
         public DbSet<Instructor> Instructors => Set<Instructor>();
         public DbSet<OfficeAssignment> OfficeAssignments => Set<OfficeAssignment>();
         public DbSet<Student> Students => Set<Student>();

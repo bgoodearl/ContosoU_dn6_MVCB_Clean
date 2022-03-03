@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Ardalis.GuardClauses" Version="4.0.0" />
     <ProjectReference Include="..\CU.SharedKernel\CU.SharedKernel.csproj" />
   </ItemGroup>
 
