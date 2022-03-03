@@ -15,6 +15,7 @@
             Added CU.Application.Shared and CU.Application.Common<br/>
             Added CU.Application, CU.Infrastructure - adapted 
             SchoolDbContext from EF 6 version<br/>
+            Added CU.EFDataApp to use for running Migrations from Package Manager Console<br/>
 		</td>
     </tr>
     <tr>
