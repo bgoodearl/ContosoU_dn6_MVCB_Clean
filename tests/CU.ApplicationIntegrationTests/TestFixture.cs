@@ -92,6 +92,7 @@ namespace CU.ApplicationIntegrationTests
         {
             if (configuration != null)
             {
+                services.AddApplicationLayer();
                 services.AddInfrastructure(configuration);
             }
         }

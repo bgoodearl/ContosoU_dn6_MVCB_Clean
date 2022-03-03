@@ -22,6 +22,12 @@
             Wired up Blazor Server<br/>
             Migrated ContosoUniversity.Components from .NET Core 3.1 Clean app<br/>
             Wired up CU Blazor components for Courses<br/>
+            Added first MediatR query - GetDepartmentListItemsQuery
+            with handler in CU.Application, and with integration test<br/>
+            Dto model, Query in CU.Application.Shared<br/>
+            Handler, AutoMapper mapping in CU.Application<br/>
+            Added DependencyInjection to CU.Application<br/>
+            Integration test GetDepartmentsTests.CanGetDepartmentsList()<br/>
 		</td>
     </tr>
     <tr>
