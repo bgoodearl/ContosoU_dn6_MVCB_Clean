@@ -8,6 +8,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_docs", "_docs", "{D42EE9A3
 		_docs\CC6__DevNotes.md = _docs\CC6__DevNotes.md
 		_docs\CC6_CleanResources.md = _docs\CC6_CleanResources.md
 		_docs\CC6_EFCore6Resources.md = _docs\CC6_EFCore6Resources.md
+		_docs\CC6_Logging.md = _docs\CC6_Logging.md
 		_docs\CC6_Resources.md = _docs\CC6_Resources.md
 		_docs\CC6_Tools.md = _docs\CC6_Tools.md
 		License.txt = License.txt
