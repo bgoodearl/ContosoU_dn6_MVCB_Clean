@@ -26,6 +26,6 @@ namespace ContosoUniversity.Models
         public virtual Department Department { get; set; }
 #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         //public virtual ICollection<Enrollment> Enrollments { get; set; } = new List<Enrollment>();
-        public virtual ICollection<Instructor> Instructors { get; set; } = new List<Instructor>();
+        //public virtual ICollection<Instructor> Instructors { get; set; } = new List<Instructor>();
     }
 }

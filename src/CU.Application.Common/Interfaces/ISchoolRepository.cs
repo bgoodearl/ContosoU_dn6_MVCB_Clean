@@ -4,10 +4,6 @@ using CU.Application.Shared.ViewModels.Courses;
 using CU.Application.Shared.ViewModels.Departments;
 using CU.Application.Shared.ViewModels.Instructors;
 using CU.Application.Shared.ViewModels.Students;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using CM = ContosoUniversity.Models;
 
 namespace CU.Application.Common.Interfaces

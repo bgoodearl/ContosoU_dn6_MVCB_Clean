@@ -26,6 +26,7 @@ A parallel solution using .NET Core 3.1 can be found [in GitHub here](https://gi
 ## Resource links
 
 [Clean Architecture and related Resource Links](./_docs/CC6_CleanResources.md)<br/>
+[EF Core 6 Resources](./_docs/CC6_EFCore6Resources.md)<br/>
 [Other Resources](./_docs/CC6_Resources.md)<br/>
 [Tools](./_docs/CC6_Tools.md)<br/>
 
@@ -35,5 +36,7 @@ Project Name                    | Description
 -------------                   | ------------
 CU.SharedKernel                 | Classes shared among multiple app projects
 ContosoUniversity.Models        | Persistent Data Object Models (Domain)
+CU.Application                  | Application specific code
 CU.Application.Common           | Interfaces allowing use of the Repository
 CU.Application.Shared           | Interfaces and Classes shared among multiple CU projects
+CU.Infrastructure               | Infrastructure, including Entity Framework DbContext, Repositories, and Migrations
