@@ -40,6 +40,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CU.EFDataApp", "src\CU.EFDa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CU.ApplicationIntegrationTests", "tests\CU.ApplicationIntegrationTests\CU.ApplicationIntegrationTests.csproj", "{80DA9607-56A0-478F-B931-E7F59E503668}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContosoUniversity", "src\ContosoUniversity\ContosoUniversity.csproj", "{C0588D35-CDEA-4D3C-B065-CA44C694BC5C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -78,6 +80,10 @@ Global
 		{80DA9607-56A0-478F-B931-E7F59E503668}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80DA9607-56A0-478F-B931-E7F59E503668}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80DA9607-56A0-478F-B931-E7F59E503668}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0588D35-CDEA-4D3C-B065-CA44C694BC5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0588D35-CDEA-4D3C-B065-CA44C694BC5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0588D35-CDEA-4D3C-B065-CA44C694BC5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0588D35-CDEA-4D3C-B065-CA44C694BC5C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -91,6 +97,7 @@ Global
 		{584933FA-2FA0-48C4-9FA1-4BC7798958BE} = {51FF3E0D-48C5-441A-A3E5-234DE1180E42}
 		{902A0E7C-583F-496F-B5B8-9EE63C83F24F} = {51FF3E0D-48C5-441A-A3E5-234DE1180E42}
 		{80DA9607-56A0-478F-B931-E7F59E503668} = {8AE22DC5-0D70-40F6-8F43-0B33296581B5}
+		{C0588D35-CDEA-4D3C-B065-CA44C694BC5C} = {51FF3E0D-48C5-441A-A3E5-234DE1180E42}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0DDCAF78-6C96-4B97-B430-11664E0BEB7B}

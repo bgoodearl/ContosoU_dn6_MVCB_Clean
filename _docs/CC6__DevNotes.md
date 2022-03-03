@@ -6,6 +6,13 @@
 		<th>Notes</th>
     </tr>
     <tr>
+        <td>3/3/2022</td><td>bg</td>
+		<td>
+            Added ASP.NET 6 Core MVC web app - ContosoUniversity<br/>
+            Switched web app to attribute routing<br/>
+		</td>
+    </tr>
+    <tr>
         <td>3/2/2022</td><td>bg</td>
 		<td>
             Started with CU.SharedKernel<br/>
