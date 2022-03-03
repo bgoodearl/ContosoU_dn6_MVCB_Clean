@@ -1,5 +1,6 @@
 ﻿using Ardalis.GuardClauses;
 using CU.Application.Common.Interfaces;
+using CU.Application.Shared.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using CIP = CU.Infrastructure.Persistence;
@@ -20,6 +21,7 @@ namespace CU.Infrastructure
             //Inject Entity Framework Repository and DbContext Factories
             services.AddSingleton<ISchoolDbContextFactory>(sp => new CIP.SchoolDbContextFactory(connStr));
             services.AddSingleton<ISchoolRepositoryFactory>(sp => new CIR.SchoolRepositoryFactory(connStr));
+            services.AddSingleton<ISchoolViewDataRepositoryFactory, CIR.SchoolViewDataRepositoryFactory>();
 
             return services;
         }

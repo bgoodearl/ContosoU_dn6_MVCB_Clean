@@ -31,6 +31,7 @@
             Added migration CU6_M03_AddCourseInstructorLink, tweaked SQL<br/>
             Added test CanGetCoursesWithInstructorsAsync()<br/>
             Added SchoolRepository and related test<br/>
+            Added SchoolViewDataRepository and related test<br/>
 		</td>
     </tr>
     <tr>
