@@ -11,8 +11,10 @@
             Added ASP.NET 6 Core MVC web app - ContosoUniversity<br/>
             Switched web app to attribute routing<br/>
             Added CUControllerBase, _TopNav.cshtml, changed content for home page<br/>
+            Wired up Infrastructure, etc. to web app<br/>
             Added Departments controller with index page<br/>
             Added logging with NLog<br/>
+            Added Instructors and Students controllers and index views<br/>
 		</td>
     </tr>
     <tr>
