@@ -23,6 +23,19 @@ A parallel solution using .NET Core 3.1 can be found [in GitHub here](https://gi
 
 ### Initial setup after cloning repo or getting code in zip
 
+Create your local database(es) and use the SQL scripts:<br/>
+`...\SqlScripts\Schema\CU6_M01_ExistingSchemaBase_2022_idempotent.sql`<br/>
+`...\SqlScripts\Schema\CU6_M02_AddEnrollment_idempotent.sql`<br/>
+to create the tables for the database used for migrations.<br/>
+
+Use the SQL scripts:<br/>
+`...\SqlScripts\Schema\CU6_M01_ExistingSchemaBase_2022.sql`<br/>
+`...\SqlScripts\Schema\CU6_M02_AddEnrollment.sql`<br/>
+to create the tables for the database used for integration tests and the web app.<br/>
+
+
+Copy `...\_ConfigSource\src\CU.EFDataApp\appsettings.migrations.json`
+to `...\src\CU.EFDataApp` and modify connection string for your environment.
 
 Copy `...\_ConfigSource\src\tests\CU.ApplicationIntegrationTests\appsettings.LocalTesting.json`
 to `...\src\tests\CU.ApplicationIntegrationTests` and modify connection string for your environment.
