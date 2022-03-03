@@ -16,6 +16,9 @@
             Added CU.Application, CU.Infrastructure - adapted 
             SchoolDbContext from EF 6 version<br/>
             Added CU.EFDataApp to use for running Migrations from Package Manager Console<br/>
+            Simplified CU.EFDataApp<br/>
+            Added SchoolContextFactory to CU.EFDataApp.Data<br/>
+            Added SchoolDbContextFactory to CU.Infrastructure<br/>
 		</td>
     </tr>
     <tr>

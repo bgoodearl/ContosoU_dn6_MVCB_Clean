@@ -1,0 +1,3 @@
+# Don't version user-specific appsettings and migrations settings
+appsettings.[Dd]evelopment_[Uu]ser_*.json
+appsettings.[Mm]igrations.json
