@@ -3,6 +3,7 @@ using CU.Application.Common.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using CIP = CU.Infrastructure.Persistence;
+using CIR = CU.Infrastructure.Repositories;
 
 namespace CU.Infrastructure
 {
@@ -18,6 +19,7 @@ namespace CU.Infrastructure
 
             //Inject Entity Framework Repository and DbContext Factories
             services.AddSingleton<ISchoolDbContextFactory>(sp => new CIP.SchoolDbContextFactory(connStr));
+            services.AddSingleton<ISchoolRepositoryFactory>(sp => new CIR.SchoolRepositoryFactory(connStr));
 
             return services;
         }

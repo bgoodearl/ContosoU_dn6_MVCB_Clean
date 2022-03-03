@@ -29,7 +29,8 @@
             Added persistent Enrollment w/links to Course and Student<br/>
             Added migration CU6_M02_AddEnrollment, tweaked SQL scripts<br/>
             Added migration CU6_M03_AddCourseInstructorLink, tweaked SQL<br/>
-            Added test CanGetCoursesWithInstructorsAsync()
+            Added test CanGetCoursesWithInstructorsAsync()<br/>
+            Added SchoolRepository and related test<br/>
 		</td>
     </tr>
     <tr>

@@ -25,6 +25,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\CU.Application.Common\CU.Application.Common.csproj" />
+    <ProjectReference Include="..\..\src\CU.Application.Shared\CU.Application.Shared.csproj" />
     <ProjectReference Include="..\..\src\CU.Application\CU.Application.csproj" />
     <ProjectReference Include="..\..\src\CU.Infrastructure\CU.Infrastructure.csproj" />
   </ItemGroup>

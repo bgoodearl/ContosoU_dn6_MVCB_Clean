@@ -51,6 +51,20 @@ namespace CU.ApplicationIntegrationTests
             throw new InvalidOperationException("GetISchoolDbContext - invalid configuration");
         }
 
+        internal ISchoolRepositoryFactory GetSchoolRepositoryFactory(ITestOutputHelper testOutputHelper)
+        {
+            testOutputHelper.Should().NotBeNull();
+
+            ISchoolRepositoryFactory? schoolRepositoryFactory = GetService<ISchoolRepositoryFactory>(testOutputHelper);
+            schoolRepositoryFactory.Should().NotBeNull();
+            if (schoolRepositoryFactory != null)
+            {
+                return schoolRepositoryFactory;
+            }
+
+            throw new InvalidOperationException("GetSchoolRepositoryFactory - invalid configuration");
+        }
+
         #region TestBed
 
         protected override IEnumerable<string> GetConfigurationFiles()
