@@ -28,6 +28,8 @@
             persistent objects<br/>
             Added persistent Enrollment w/links to Course and Student<br/>
             Added migration CU6_M02_AddEnrollment, tweaked SQL scripts<br/>
+            Added migration CU6_M03_AddCourseInstructorLink, tweaked SQL<br/>
+            Added test CanGetCoursesWithInstructorsAsync()
 		</td>
     </tr>
     <tr>

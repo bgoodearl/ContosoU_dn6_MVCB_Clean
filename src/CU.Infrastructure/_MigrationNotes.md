@@ -42,6 +42,12 @@ Script-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp -From 0
 Add-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp CU6_M02_AddEnrollment
 Script-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp -From CU6_M01_ExistingSchemaBase_2022 -To CU6_M02_AddEnrollment -output .\SqlScripts\Schema\CU6_M02_AddEnrollment_idempotent.sql -Idempotent
 Script-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp -From CU6_M01_ExistingSchemaBase_2022 -To CU6_M02_AddEnrollment -output .\SqlScripts\Schema\CU6_M02_AddEnrollment.sql
+
+# CU6_M03_AddCourseInstructorLink
+
+Add-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp CU6_M03_AddCourseInstructorLink
+Script-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp -From CU6_M02_AddEnrollment -To CU6_M03_AddCourseInstructorLink -output .\SqlScripts\Schema\CU6_M03_AddCourseInstructorLink_idempotent.sql -Idempotent
+Script-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp -From CU6_M02_AddEnrollment -To CU6_M03_AddCourseInstructorLink -output .\SqlScripts\Schema\CU6_M03_AddCourseInstructorLink.sql
 ```
 
 #### What's in Migrations
@@ -50,4 +56,5 @@ Migration                       | Details
 -------------                   | ------------
 CU6_M01_ExistingSchemaBase_2022 | match for base of existing schema from prior implementation w/.NET Core 3.1 WITHOUT Enrollments or Courses -- Instructors
 CU6_M02_AddEnrollment           | added Enrollment table with links to Course and Student
+CU6_M03_AddCourseInstructorLink | added many-to-many link between Course and Instructor
 

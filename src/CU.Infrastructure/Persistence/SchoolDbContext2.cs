@@ -16,6 +16,19 @@ namespace CU.Infrastructure.Persistence
                 e.ToTable("Course");
                 e.HasOne(e => e.Department).WithMany()
                     .HasForeignKey(e => e.DepartmentID).IsRequired(true).OnDelete(DeleteBehavior.Restrict);
+
+                e.HasMany(c => c.Instructors).WithMany(i => i.Courses)
+                    .UsingEntity<Dictionary<string, object>>(
+                        "CourseInstructor",
+                        l => l.HasOne<Instructor>().WithMany().HasForeignKey("InstructorID")
+                        .OnDelete(DeleteBehavior.Restrict).HasConstraintName("FK_CourseInstructor_Instructor"),
+                        r => r.HasOne<Course>().WithMany().HasForeignKey("CourseID")
+                        .OnDelete(DeleteBehavior.Restrict).HasConstraintName("FK_CourseInstructor_Course"),
+                        j =>
+                        {
+                            j.HasKey("CourseID", "InstructorID");
+                            j.ToTable("CourseInstructor");
+                        });
             });
 
             modelBuilder.Entity<Department>(e =>

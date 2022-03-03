@@ -31,6 +31,7 @@ to create the tables for the database used for migrations.<br/>
 Use the SQL scripts:<br/>
 `...\SqlScripts\Schema\CU6_M01_ExistingSchemaBase_2022.sql`<br/>
 `...\SqlScripts\Schema\CU6_M02_AddEnrollment.sql`<br/>
+`...\SqlScripts\Schema\CU6_M03_AddCourseInstructorLink.sql`<br/>
 to create the tables for the database used for integration tests and the web app.<br/>
 
 

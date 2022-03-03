@@ -48,8 +48,7 @@ namespace CU.Infrastructure.Persistence
 
         public async Task<int> SeedInitialDataAsync()
         {
-            return -1;
-            //return await SchoolDbContextSeed.SeedDefaultDataAsync(this);
+            return await SchoolDbContextSeed.SeedDefaultDataAsync(this);
         }
     }
 }
