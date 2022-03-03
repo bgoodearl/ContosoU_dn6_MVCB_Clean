@@ -1,0 +1,16 @@
+﻿@using CU.Application.Shared.ViewModels.Courses
+@model CoursesViewModel
+@{
+    @if (Model.ViewMode >= 0)
+    {
+        Layout = "~/Views/Shared/_LayoutBlazor.cshtml";
+    }
+    ViewData["Title"] = "Courses";
+}
+    <h1 class="h2">Courses - MVC</h1>
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+
+    @await Html.PartialAsync("Partial/CourseListPartial", Model.CourseList)

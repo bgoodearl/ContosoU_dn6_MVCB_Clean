@@ -15,6 +15,9 @@
             Added Departments controller with index page<br/>
             Added logging with NLog<br/>
             Added Instructors and Students controllers and index views<br/>
+            Added Courses controller and views from .NET Core 3.1 version,
+            tweaked controller for .NET 6<br/>
+            See changes in SchoolDbContext with new method InitializeDbSets()<br/>
 		</td>
     </tr>
     <tr>

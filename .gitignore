@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+#Don't commit any files or folders starting with _Local
+_[Ll]ocal*
