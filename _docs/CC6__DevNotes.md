@@ -19,6 +19,8 @@
             Simplified CU.EFDataApp<br/>
             Added SchoolContextFactory to CU.EFDataApp.Data<br/>
             Added SchoolDbContextFactory to CU.Infrastructure<br/>
+            Added first EF migration: CU6_M01_ExistingSchemaBase_2022 -
+            see _MigrationNotes.md in CU.Infrastructure<br/>
 		</td>
     </tr>
     <tr>
