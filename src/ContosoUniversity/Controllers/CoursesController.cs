@@ -29,10 +29,10 @@ namespace ContosoUniversity.Controllers
         {
             using (ISchoolRepository repo = GetSchoolRepository())
             {
-                CUSVMC.CoursesViewModel model = new CUSVMC.CoursesViewModel
+                CUSVMC.CoursesListViewModel model = new CUSVMC.CoursesListViewModel
                 {
                     CourseID = id,
-                    CourseList = await repo.GetCourseListItemsNoTrackingAsync(),
+                    CourseList = (mode != null && mode.Value < 0) ? await repo.GetCourseListItemsNoTrackingAsync() : new List<CUSVMC.CourseListItem>(),
                     ViewMode = mode.HasValue ? mode.Value : 0
                 };
                 return View(model);
@@ -96,7 +96,7 @@ namespace ContosoUniversity.Controllers
                             }
                             else
                             {
-                                return RedirectToAction(nameof(Index), new { mode = -1 });
+                                return RedirectToAction(nameof(Index));
                             }
                         }
                     }
@@ -186,7 +186,7 @@ namespace ContosoUniversity.Controllers
                             }
                             else
                             {
-                                return RedirectToAction(nameof(Index), new { mode = -1 });
+                                return RedirectToAction(nameof(Index));
                             }
                         }
                     }
@@ -263,7 +263,7 @@ namespace ContosoUniversity.Controllers
                 else
                 {
                     Logger.LogInformation($"Courses-Delete CourseID = {course.CourseID}");
-                    return RedirectToAction(nameof(Index), new { mode = -1 });
+                    return RedirectToAction("Index");
                 }
             }
 

@@ -171,31 +171,6 @@ namespace CU.Infrastructure.Repositories
             return instructors;
         }
 
-        public async Task<CoursesViewModel> GetCourses(int? id)
-        {
-            var courses = SchoolDbContext.Courses
-                .Include(c => c.Department)
-                .AsNoTracking();
-
-            CoursesViewModel model = new CoursesViewModel
-            {
-                CourseID = id
-                //ViewMode = mode.HasValue ? mode.Value : 0
-            };
-
-            model.CourseList = await courses.Select(x => new CourseListItem
-            {
-                CourseID = x.CourseID,
-                Credits = x.Credits,
-                Department = x.Department.Name,
-                Title = x.Title
-            })
-            .Where(c => id == null || c.CourseID == id)
-            .ToListAsync();
-
-            return model;
-        }
-
         public IQueryable<CM.Course> GetCoursesQueryable()
         {
             return (IQueryable<CM.Course>)SchoolDbContext.Courses;
