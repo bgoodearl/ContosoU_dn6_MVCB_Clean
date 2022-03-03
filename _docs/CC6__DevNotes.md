@@ -21,6 +21,9 @@
             Added SchoolDbContextFactory to CU.Infrastructure<br/>
             Added first EF migration: CU6_M01_ExistingSchemaBase_2022 -
             see _MigrationNotes.md in CU.Infrastructure<br/>
+            Added Infrastructure DependencyInjection<br/>
+            Added CU.ApplicationIntegrationTests, first test:
+            CanGetCoursesAsync - using ISchoolDbContext<br/>
 		</td>
     </tr>
     <tr>
