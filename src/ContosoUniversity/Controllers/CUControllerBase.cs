@@ -1,6 +1,7 @@
 ﻿using Ardalis.GuardClauses;
 using CU.Application.Common.Interfaces;
 using CU.Application.Shared.Interfaces;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 namespace ContosoUniversity.Controllers
 {
@@ -17,6 +18,7 @@ namespace ContosoUniversity.Controllers
         #region Read Only variables
 
         protected IHttpContextAccessor HttpContextAccessor { get; }
+        private ISender _mediator = null!;
 
         #endregion Read Only variables
 
@@ -24,6 +26,9 @@ namespace ContosoUniversity.Controllers
 
         private ISchoolRepositoryFactory _schoolRepositoryFactory = null!;
         private ISchoolViewDataRepositoryFactory _schoolViewDataRepositoryFactory = null!;
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
+        protected ISender Mediator => _mediator ??= HttpContextAccessor.HttpContext.RequestServices.GetRequiredService<ISender>();
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
         protected ISchoolRepositoryFactory SchoolRepositoryFactory =>
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
             _schoolRepositoryFactory ??= HttpContextAccessor.HttpContext.RequestServices.GetRequiredService<ISchoolRepositoryFactory>();
@@ -32,7 +37,6 @@ namespace ContosoUniversity.Controllers
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
             _schoolViewDataRepositoryFactory ??= HttpContextAccessor.HttpContext.RequestServices.GetRequiredService<ISchoolViewDataRepositoryFactory>();
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
-
 
         protected ISchoolRepository GetSchoolRepository()
         {
@@ -45,6 +49,11 @@ namespace ContosoUniversity.Controllers
         }
 
         #endregion Repositories / DB access
+
+        protected async Task<TResponse> SendQueryAsync<TResponse>(IRequest<TResponse> request)
+        {
+            return await Mediator.Send(request);
+        }
 
     }
 }

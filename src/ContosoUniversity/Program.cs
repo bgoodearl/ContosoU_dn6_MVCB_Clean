@@ -2,6 +2,7 @@ using NLog;
 using NLog.Web;
 using CU.Infrastructure;
 using NLEL = NLog.Extensions.Logging;
+using CU.Application;
 
 InitializeLogging();
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +19,7 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddApplicationLayer();
 
 var app = builder.Build();
 
