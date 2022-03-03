@@ -14,6 +14,7 @@
   
   <ItemGroup>
     <ProjectReference Include="..\CU.Infrastructure\CU.Infrastructure.csproj" />
+    <ProjectReference Include="..\Demo.Components\Demo.Components.csproj" />
   </ItemGroup>
 
 </Project>

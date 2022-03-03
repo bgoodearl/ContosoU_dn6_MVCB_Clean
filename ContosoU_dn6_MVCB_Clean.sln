@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_docs", "_docs", "{D42EE9A3-D2F6-4630-B043-C5B49293AD8C}"
 	ProjectSection(SolutionItems) = preProject
 		_docs\CC6__DevNotes.md = _docs\CC6__DevNotes.md
+		_docs\CC6_BlazorResources.md = _docs\CC6_BlazorResources.md
 		_docs\CC6_CleanResources.md = _docs\CC6_CleanResources.md
 		_docs\CC6_EFCore6Resources.md = _docs\CC6_EFCore6Resources.md
 		_docs\CC6_Logging.md = _docs\CC6_Logging.md
@@ -42,6 +43,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CU.ApplicationIntegrationTests", "tests\CU.ApplicationIntegrationTests\CU.ApplicationIntegrationTests.csproj", "{80DA9607-56A0-478F-B931-E7F59E503668}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContosoUniversity", "src\ContosoUniversity\ContosoUniversity.csproj", "{C0588D35-CDEA-4D3C-B065-CA44C694BC5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.Components", "src\Demo.Components\Demo.Components.csproj", "{B1187B81-0FF9-4297-B63A-8D99B1250C38}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -85,6 +88,10 @@ Global
 		{C0588D35-CDEA-4D3C-B065-CA44C694BC5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0588D35-CDEA-4D3C-B065-CA44C694BC5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0588D35-CDEA-4D3C-B065-CA44C694BC5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1187B81-0FF9-4297-B63A-8D99B1250C38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1187B81-0FF9-4297-B63A-8D99B1250C38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1187B81-0FF9-4297-B63A-8D99B1250C38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1187B81-0FF9-4297-B63A-8D99B1250C38}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -99,6 +106,7 @@ Global
 		{902A0E7C-583F-496F-B5B8-9EE63C83F24F} = {51FF3E0D-48C5-441A-A3E5-234DE1180E42}
 		{80DA9607-56A0-478F-B931-E7F59E503668} = {8AE22DC5-0D70-40F6-8F43-0B33296581B5}
 		{C0588D35-CDEA-4D3C-B065-CA44C694BC5C} = {51FF3E0D-48C5-441A-A3E5-234DE1180E42}
+		{B1187B81-0FF9-4297-B63A-8D99B1250C38} = {51FF3E0D-48C5-441A-A3E5-234DE1180E42}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0DDCAF78-6C96-4B97-B430-11664E0BEB7B}

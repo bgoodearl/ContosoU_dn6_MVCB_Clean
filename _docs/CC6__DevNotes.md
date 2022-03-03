@@ -18,6 +18,8 @@
             Added Courses controller and views from .NET Core 3.1 version,
             tweaked controller for .NET 6<br/>
             See changes in SchoolDbContext with new method InitializeDbSets()<br/>
+            Added Demo.Components project w/Blazor demo components<br/>
+            Wired up Blazor Server<br/>
 		</td>
     </tr>
     <tr>

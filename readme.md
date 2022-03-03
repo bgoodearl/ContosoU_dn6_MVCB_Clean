@@ -51,6 +51,7 @@ to `...\src\tests\CU.ApplicationIntegrationTests` and modify connection string f
 
 ## Resource links
 
+[Blazor Resource Links](./_docs/CC6_BlazorResources.md)<br/>
 [Clean Architecture and related Resource Links](./_docs/CC6_CleanResources.md)<br/>
 [EF Core 6 Resources](./_docs/CC6_EFCore6Resources.md)<br/>
 [Logging Resources](./_docs/CC6_Logging.md)<br/>
@@ -78,3 +79,4 @@ CU.Application.Shared           | Interfaces and Classes shared among multiple C
 CU.Infrastructure               | Infrastructure, including Entity Framework DbContext, Repositories, and Migrations
 CU.SharedKernel                 | Classes shared among multiple app projects
 CU.ApplicationIntegrationTests  | 
+Demo.Components                 | Demo Blazor components

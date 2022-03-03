@@ -11,6 +11,8 @@ builder.Host.UseNLog();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
+builder.Services.AddServerSideBlazor();
 
 //Inject HttpContextAccessor
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
@@ -33,6 +35,9 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.MapBlazorHub();
+//app.MapFallbackToPage("/???"); //TODO
 
 app.MapControllers();
 //app.MapControllerRoute(
