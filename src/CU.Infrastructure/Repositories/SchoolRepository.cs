@@ -1,5 +1,6 @@
 ﻿using Ardalis.GuardClauses;
 using CU.Application.Common.Interfaces;
+using CU.Application.Data.Common.Interfaces;
 using CU.Application.Shared.ViewModels;
 using CU.Application.Shared.ViewModels.Courses;
 using CU.Application.Shared.ViewModels.Departments;

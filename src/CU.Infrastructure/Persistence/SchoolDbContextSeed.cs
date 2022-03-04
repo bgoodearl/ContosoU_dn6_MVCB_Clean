@@ -1,6 +1,6 @@
 ﻿using Ardalis.GuardClauses;
 using ContosoUniversity.Models;
-using CU.Application.Common.Interfaces;
+using CU.Application.Data.Common.Interfaces;
 
 namespace CU.Infrastructure.Persistence
 {

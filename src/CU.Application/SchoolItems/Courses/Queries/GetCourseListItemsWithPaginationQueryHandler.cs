@@ -2,8 +2,8 @@
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using MediatR;
-using CU.Application.Common.Interfaces;
 using CU.Application.Common.Mapping;
+using CU.Application.Data.Common.Interfaces;
 using CU.Application.Shared.Common.Models;
 using CU.Application.Shared.DataRequests.SchoolItems.Queries;
 using CU.Application.Shared.Models.SchoolDtos;

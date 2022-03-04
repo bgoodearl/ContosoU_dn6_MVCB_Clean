@@ -1,4 +1,6 @@
-﻿using CU.SharedKernel.Base;
+﻿#if false
+//TODO: Restore this when Domain Events are figured out
+using CU.SharedKernel.Base;
 
 namespace CU.SharedKernel.Interfaces
 {
@@ -7,3 +9,4 @@ namespace CU.SharedKernel.Interfaces
         List<DomainEventBase> DomainEvents { get; }
     }
 }
+#endif

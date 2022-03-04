@@ -1,6 +1,5 @@
 ﻿using Ardalis.GuardClauses;
 using CU.SharedKernel.Base;
-using CU.SharedKernel.Interfaces;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -11,7 +10,7 @@ namespace ContosoUniversity.Models
         A, B, C, D, F
     }
 
-    public class Enrollment : EntityBaseT<int>, IHasDomainEvents
+    public class Enrollment : EntityBaseT<int>
     {
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         private Enrollment()

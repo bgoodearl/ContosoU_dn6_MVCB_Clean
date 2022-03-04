@@ -1,5 +1,6 @@
 ﻿using CU.Application;
 using CU.Application.Common.Interfaces;
+using CU.Application.Data.Common.Interfaces;
 using CU.Application.Shared.Interfaces;
 using CU.Infrastructure;
 using FluentAssertions;
@@ -23,6 +24,27 @@ namespace CU.ApplicationIntegrationTests
         {
             ++fixtureInstanceCount;
         }
+
+        #region Other Factories
+
+        internal IServiceScopeFactory GetServiceScopeFactory(ITestOutputHelper testOutputHelper)
+        {
+            testOutputHelper.Should().NotBeNull();
+
+            IServiceScopeFactory? scopeFactory = GetService<IServiceScopeFactory>(testOutputHelper);
+            scopeFactory.Should().NotBeNull();
+
+            if (scopeFactory != null)
+            {
+                return scopeFactory;
+            }
+            throw new InvalidOperationException("GetServiceScopeFactory - invalid configuration");
+        }
+
+        #endregion Other Factories
+
+
+        #region School Data Factories
 
         internal async Task<ISchoolDbContext> GetISchoolDbContext(ITestOutputHelper testOutputHelper)
         {
@@ -79,6 +101,8 @@ namespace CU.ApplicationIntegrationTests
 
             throw new InvalidOperationException("GetSchoolViewDataRepositoryFactory - invalid configuration");
         }
+
+        #endregion School Data Factories
 
         #region TestBed
 

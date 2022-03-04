@@ -1,12 +1,12 @@
 ﻿using Ardalis.GuardClauses;
 using CU.SharedKernel.Base;
-using CU.SharedKernel.Interfaces;
+//using CU.SharedKernel.Interfaces; //TODO: Restore when Domain Events are figured out
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ContosoUniversity.Models
 {
-    public class Student : EntityBaseT<int>, IHasDomainEvents
+    public class Student : EntityBaseT<int> //, IHasDomainEvents //TODO: Restore when Domain Events are figured out
     {
         private Student()
         {

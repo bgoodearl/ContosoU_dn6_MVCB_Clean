@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ContosoUniversity.Models;
-using CU.Application.Common.Interfaces;
+using CU.Application.Data.Common.Interfaces;
 
 namespace CU.Infrastructure.Persistence
 {
@@ -43,8 +43,13 @@ namespace CU.Infrastructure.Persistence
             return SqlServerDbContextOptionsExtensions.UseSqlServer(new DbContextOptionsBuilder<SchoolDbContext>(), connectionString).Options;
         }
 
+        #region read-only variables
+
         private static int contextInstanceSeed = 0;
         protected int ContextInstance { get; }
+
+        #endregion read-only variables
+
 
         #region Persistent Entities
 
@@ -59,7 +64,11 @@ namespace CU.Infrastructure.Persistence
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
         {
-            return await base.SaveChangesAsync(cancellationToken);
+            //TODO: Domain events could be dispatched before or after calling base SaveChangesAsync
+
+            var result = await base.SaveChangesAsync(cancellationToken);
+
+            return result;
         }
 
         public async Task<int> SeedInitialDataAsync()

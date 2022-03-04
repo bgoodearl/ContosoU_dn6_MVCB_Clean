@@ -1,12 +1,11 @@
 ﻿using Ardalis.GuardClauses;
 using CU.SharedKernel.Base;
-using CU.SharedKernel.Interfaces;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ContosoUniversity.Models
 {
-    public class Department : EntityBaseT<int>, IHasDomainEvents
+    public class Department : EntityBaseT<int>
     {
         private Department()
         {

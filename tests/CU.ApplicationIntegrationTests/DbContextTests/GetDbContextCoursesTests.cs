@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using CU.Application.Common.Interfaces;
+using CU.Application.Data.Common.Interfaces;
 using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
 using Xunit;

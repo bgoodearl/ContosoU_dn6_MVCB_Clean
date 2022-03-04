@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿//using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CU.SharedKernel.Base
 {
@@ -10,7 +10,8 @@ namespace CU.SharedKernel.Base
         /// </summary>
         public abstract TId Id { get; }
 
-        [NotMapped]
-        public List<DomainEventBase> DomainEvents { get; private set; } = new List<DomainEventBase>();
+        ////*** TODO: put this back when Domain Events are figured out
+        //[NotMapped]
+        //public List<DomainEventBase> DomainEvents { get; private set; } = new List<DomainEventBase>();
     }
 }
