@@ -1,4 +1,4 @@
-﻿using CU.Application.Common.Exceptions;
+﻿using CU.Application.Shared.Common.Exceptions;
 using CU.Application.Data.Common.Interfaces;
 using CU.Application.Shared.DataRequests.SchoolItems.Commands;
 using FluentAssertions;

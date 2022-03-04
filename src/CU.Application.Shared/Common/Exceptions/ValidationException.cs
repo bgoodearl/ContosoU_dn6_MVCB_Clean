@@ -1,6 +1,6 @@
 ﻿using FluentValidation.Results;
 
-namespace CU.Application.Common.Exceptions
+namespace CU.Application.Shared.Common.Exceptions
 {
     #region License
 

@@ -18,6 +18,7 @@
             Integrated additional code from Jason Taylor's Clean sample to support
             MediatR commands<br/>
             Added first command: CreateStudentItemCommand with validation, handler and test<br/>
+            Moved ValidationException from CU.Application.Common to CU.Application.Shared<br/>
 		</td>
     </tr>
     <tr>

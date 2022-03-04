@@ -9,7 +9,6 @@
   <ItemGroup>
     <ProjectReference Include="..\ContosoUniversity.Models\ContosoUniversity.Models.csproj" />
     <ProjectReference Include="..\CU.Application.Shared\CU.Application.Shared.csproj" />
-    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="10.3.6" />
   </ItemGroup>
 
 </Project>

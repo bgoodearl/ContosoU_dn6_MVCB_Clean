@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 using MediatR;
-using ValidationException = CU.Application.Common.Exceptions.ValidationException;
+using ValidationException = CU.Application.Shared.Common.Exceptions.ValidationException;
 
 namespace CU.Application.Common.Behaviors
 {
