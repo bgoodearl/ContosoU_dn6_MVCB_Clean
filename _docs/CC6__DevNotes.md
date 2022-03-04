@@ -15,6 +15,9 @@
             to CU.Application.Data.Common so Infrastructure doesn't depend on Application<br/>
             Reverted to MediatR v9<br/>
             Added unit test for MediatR requests having handlers<br/>
+            Integrated additional code from Jason Taylor's Clean sample to support
+            MediatR commands<br/>
+            Added first command: CreateStudentItemCommand with validation, handler and test<br/>
 		</td>
     </tr>
     <tr>
