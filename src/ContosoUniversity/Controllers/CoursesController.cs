@@ -1,7 +1,9 @@
 ﻿using Ardalis.GuardClauses;
+using ContosoUniversity.Models;
 using ContosoUniversity.ViewModels.Courses;
 using ContosoUniversity.ViewModels.Shared;
 using CU.Application.Common.Interfaces;
+using CU.Application.Data.Common.Interfaces;
 using CU.Application.Shared.Interfaces;
 using CU.Application.Shared.ViewModels.Departments;
 using Microsoft.AspNetCore.Mvc;
@@ -292,6 +294,30 @@ namespace ContosoUniversity.Controllers
                 Text = x.Name,
                 Value = x.DepartmentID.ToString()
             }).ToList();
+        }
+
+        public async Task<IActionResult> SeedData()
+        {
+            try
+            {
+                using (ISchoolDbContext ctx = GetSchoolDbContext())
+                {
+                    if ((ctx.Students.Count() == 0) || (ctx.Instructors.Count() == 0)
+                        || (ctx.Courses.Count() == 0) || (ctx.Enrollments.Count() == 0))
+                    {
+                        int saveChangeCount = await ctx.SeedInitialDataAsync();
+                    }
+                }
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex, "Courses-SeedData {0}: {1}", ex.GetType().Name, ex.Message);
+                ErrorViewModel model = new ErrorViewModel
+                {
+                };
+                return View("Error", model);
+            }
         }
 
     }
