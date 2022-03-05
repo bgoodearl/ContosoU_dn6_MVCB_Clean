@@ -50,7 +50,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContosoUniversity.Component
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CU.Application.Data.Common", "src\CU.Application.Data.Common\CU.Application.Data.Common.csproj", "{2E1E85A5-7E3B-4997-98BE-CD22FD03943E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CU.Application.UnitTests", "tests\CU.Application.UnitTests\CU.Application.UnitTests.csproj", "{9BDC6CAC-B63A-4437-8CA2-758E15B59CB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CU.Application.UnitTests", "tests\CU.Application.UnitTests\CU.Application.UnitTests.csproj", "{9BDC6CAC-B63A-4437-8CA2-758E15B59CB5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

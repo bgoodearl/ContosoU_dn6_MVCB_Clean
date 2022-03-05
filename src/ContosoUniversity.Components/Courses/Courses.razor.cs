@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Logging;
 using static CU.Application.Shared.CommonDefs;
 
-namespace ContosoUniversity.Components
+namespace ContosoUniversity.Components.Courses
 {
     public partial class Courses
     {

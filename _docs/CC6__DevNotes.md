@@ -9,6 +9,7 @@
         <td>3/5/2022</td><td>bg</td>
 		<td>
             Tweaked use of ISchoolDbContextFactory<br/>
+            Refactored Components - moved Course components to Courses folder,
 		</td>
     </tr>
     <tr>
