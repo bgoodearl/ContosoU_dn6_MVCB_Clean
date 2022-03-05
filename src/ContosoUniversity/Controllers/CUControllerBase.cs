@@ -14,8 +14,8 @@ namespace ContosoUniversity.Controllers
             HttpContextAccessor = httpContextAccessor;
             Guard.Against.Null(httpContextAccessor.HttpContext, nameof(httpContextAccessor.HttpContext));
             Guard.Against.Null(httpContextAccessor.HttpContext.RequestServices, nameof(httpContextAccessor.HttpContext.RequestServices));
-            SchoolDbContextFactory = httpContextAccessor.HttpContext.RequestServices.GetRequiredService<ISchoolDbContextFactory>();
-            Guard.Against.Null(SchoolDbContextFactory, nameof(SchoolDbContextFactory));
+            SchoolDbContext = httpContextAccessor.HttpContext.RequestServices.GetRequiredService<ISchoolDbContext>();
+            Guard.Against.Null(SchoolDbContext, nameof(SchoolDbContext));
         }
 
         #region Read Only variables
@@ -41,11 +41,7 @@ namespace ContosoUniversity.Controllers
             _schoolViewDataRepositoryFactory ??= HttpContextAccessor.HttpContext.RequestServices.GetRequiredService<ISchoolViewDataRepositoryFactory>();
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
 
-        ISchoolDbContextFactory SchoolDbContextFactory { get; }
-        protected ISchoolDbContext GetSchoolDbContext()
-        {
-            return SchoolDbContextFactory.GetSchoolDbContext();
-        }
+        protected ISchoolDbContext SchoolDbContext { get; }
 
         protected ISchoolRepository GetSchoolRepository()
         {

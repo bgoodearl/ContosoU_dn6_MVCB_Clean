@@ -1,4 +1,5 @@
 ﻿using CU.Application.Data.Common.Interfaces;
+using CU.Infrastructure.Interfaces;
 
 namespace CU.Infrastructure.Persistence
 {

@@ -46,34 +46,6 @@ namespace CU.ApplicationIntegrationTests
 
         #region School Data Factories
 
-        internal async Task<ISchoolDbContext> GetISchoolDbContext(ITestOutputHelper testOutputHelper)
-        {
-            testOutputHelper.Should().NotBeNull();
-
-            ISchoolDbContextFactory? schoolDbContextFactory = GetService<ISchoolDbContextFactory>(testOutputHelper);
-            schoolDbContextFactory.Should().NotBeNull();
-            if (schoolDbContextFactory != null)
-            {
-                ISchoolDbContext? cuContext = schoolDbContextFactory.GetSchoolDbContext();
-                cuContext.Should().NotBeNull();
-                if (cuContext != null)
-                {
-                    if (!FixtureDbInitialized)
-                    {
-                        int saveCount = await cuContext.SeedInitialDataAsync();
-                        FixtureDbInitialized = true;
-                        if (testOutputHelper != null)
-                        {
-                            testOutputHelper.WriteLine($"SeedInitialDataAsync saved {saveCount} changes, fixtureInstanceCount = {fixtureInstanceCount}");
-                        }
-                    }
-                    return cuContext;
-                }
-            }
-
-            throw new InvalidOperationException("GetISchoolDbContext - invalid configuration");
-        }
-
         internal ISchoolRepositoryFactory GetSchoolRepositoryFactory(ITestOutputHelper testOutputHelper)
         {
             testOutputHelper.Should().NotBeNull();
