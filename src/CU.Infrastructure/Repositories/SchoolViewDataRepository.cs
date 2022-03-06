@@ -139,7 +139,7 @@ namespace CU.Infrastructure.Repositories
             }
         }
 
-        #endregion ISchoolDataRepository
+        #endregion ISchoolViewDataRepository
 
     }
 }

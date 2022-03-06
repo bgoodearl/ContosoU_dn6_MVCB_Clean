@@ -4,7 +4,6 @@ using CU.Application.Shared.Common.Models;
 using CU.Application.Shared.DataRequests.SchoolItems.Queries;
 using CU.Application.Shared.Models.SchoolDtos;
 using CU.Application.Shared.ViewModels;
-using CU.Application.Shared.ViewModels.Courses;
 using MediatR;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Logging;
@@ -14,17 +13,17 @@ namespace ContosoUniversity.Components.Courses
 {
     public partial class CourseList
     {
-        [Inject] ISender? Mediator { get; set; }
-
-        [Inject] ILogger<CourseList>? Logger { get; set; }
-
         [Parameter] public SchoolItemViewModel? CoursesVM { get; set; }
 
         [Parameter] public EventCallback<SchoolItemEventArgs> SchoolItemAction { get; set; }
 
+        [Inject] ISender? Mediator { get; set; }
+
+        [Inject] ILogger<CourseList>? Logger { get; set; }
+
         protected bool Loading { get; set; }
 
-        private Pager? childPager;
+        protected Pager? childPager;
 
         public IEnumerable<CourseListItemDto> CourseItemList { get; set; } = new List<CourseListItemDto>();
 

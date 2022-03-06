@@ -7,6 +7,7 @@ using CU.Application.Shared.ViewModels.Instructors;
 using MediatR;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Logging;
+using static CU.Application.Shared.CommonDefs;
 
 namespace ContosoUniversity.Components.Instructors
 {
@@ -21,6 +22,9 @@ namespace ContosoUniversity.Components.Instructors
 
         [Inject] ILogger<InstructorList> Logger { get; set; }
 #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+
+        //protected int? InstructorIdForCourses { get; set; }
+        //protected string? InstructorNameForCourses { get; set; }
 
         protected bool Loading { get; set; }
 
@@ -67,7 +71,7 @@ namespace ContosoUniversity.Components.Instructors
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
             bool shouldLoad = (Mediator != null) && !Loading && (InstructorItemList.Count() == 0);
-            if (Logger != null) { Logger.LogDebug($"InstructorList.OnAfterRenderAsync: First Render == {firstRender}, shouldLoad={shouldLoad}"); }
+            if (Logger != null) { Logger.LogDebug($"InstructorList.OnAfterRenderAsync: First Render == {firstRender}, shouldLoad={shouldLoad}, childPager present = {((childPager != null) ? "yes" : "no")}"); }
 
             if (shouldLoad)
             {
@@ -84,6 +88,21 @@ namespace ContosoUniversity.Components.Instructors
         //    bool shouldLoad = ((Mediator != null) && !Loading && (InstructorItemList.Count() == 0));
         //    if (Logger != null) { Logger.LogDebug($"InstructorList.OnInitializedAsync shouldLoad={shouldLoad}"); }
         //}
+
+        public void OnShowCourses(InstructorListItem item)
+        {
+            if ((item != null) && (item.ID > 0))
+            {
+                SchoolItemEventArgs args = new SchoolItemEventArgs
+                {
+                    SecondaryId = item.ID,
+                    SecondaryOperation = (int)SecondaryOps.ShowCoursesForInstructor,
+                    SecondaryOpString1 = item.FullName,
+                    UIMode = UIMode.NoChange
+                };
+                InstructorAction.InvokeAsync(args);
+            }
+        }
 
         #endregion events
     }

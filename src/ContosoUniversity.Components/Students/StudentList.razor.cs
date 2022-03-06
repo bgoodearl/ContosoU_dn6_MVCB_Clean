@@ -113,12 +113,12 @@ namespace ContosoUniversity.Components.Students
             }
         }
 
-        //Uncomment OnInitializedAsync() if needed for debugging problems with initial loading
-        protected override async Task OnInitializedAsync()
-        {
-            bool shouldLoad = ((Mediator != null) && !Loading && (StudentItemList.Count() == 0));
-            if (Logger != null) { Logger.LogDebug($"StudentList.OnInitializedAsync shouldLoad={shouldLoad}"); }
-        }
+        ////Uncomment OnInitializedAsync() if needed for debugging problems with initial loading
+        //protected override async Task OnInitializedAsync()
+        //{
+        //    bool shouldLoad = ((Mediator != null) && !Loading && (StudentItemList.Count() == 0));
+        //    if (Logger != null) { Logger.LogDebug($"StudentList.OnInitializedAsync shouldLoad={shouldLoad}"); }
+        //}
 
         #endregion events
 

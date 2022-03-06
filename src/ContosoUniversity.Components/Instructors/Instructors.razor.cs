@@ -1,9 +1,6 @@
-﻿using CU.Application.Shared.ViewModels.Instructors;
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Threading.Tasks;
 using CASE = CU.Application.Shared.Common.Exceptions;
 using static CU.Application.Shared.CommonDefs;
 using CU.Application.Shared.ViewModels;
@@ -19,6 +16,8 @@ namespace ContosoUniversity.Components.Instructors
         [Inject] ISender Mediator { get; set; }
 #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 
+        protected int? InstructorId4Courses { get; set; }
+        protected string? InstructorName4Courses { get; set; }
         protected string? Message { get; set; }
         protected UIMode UIMode { get; set; }
 
@@ -26,10 +25,34 @@ namespace ContosoUniversity.Components.Instructors
         {
             if (args != null)
             {
+                InstructorId4Courses = null;
                 Message = null;
                 try
                 {
-                    if (args.ItemID != 0)
+                    if (args.UIMode == UIMode.NoChange)
+                    {
+                        Logger.LogDebug($"Instructors-InstructorAction UIMode {args.UIMode}, 2nd Id: {args.SecondaryId}, 2nd op: {args.SecondaryOperation}");
+                        if (args.SecondaryOperation.HasValue && (args.SecondaryOperation.Value == (int)SecondaryOps.ShowCoursesForInstructor))
+                        {
+                            //Message = $"2nd Op = {args.SecondaryOperation}, Id = {args.SecondaryId}";
+
+                            if (args.SecondaryId.HasValue)
+                            {
+                                bool refresh = false;
+                                if (!InstructorId4Courses.HasValue || (InstructorId4Courses.Value != args.SecondaryId.Value))
+                                {
+                                    refresh = true;
+                                }
+                                InstructorId4Courses = args.SecondaryId.Value;
+                                InstructorName4Courses = args.SecondaryOpString1;
+                                if (refresh)
+                                {
+                                    await InvokeAsync(() => StateHasChanged());
+                                }
+                            }
+                        }
+                    }
+                    else if (args.ItemID != 0)
                     {
 
                     }
