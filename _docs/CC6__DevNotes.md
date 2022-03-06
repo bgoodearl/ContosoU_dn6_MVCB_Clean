@@ -15,6 +15,9 @@
             Added StudentEdit component - Create New<br/>
             Completed StudentEdit - Edit, MediatR command
             UpdateStudentItemCommand<br/>
+            Added GetInstructorListItemsWithPaginationQuery, test<br/>
+            Added razor components: Instructors, InstructorList<br/>
+            Updated Instructors Index MVC page to use razor components by default<br/>
 		</td>
     </tr>
     <tr>
