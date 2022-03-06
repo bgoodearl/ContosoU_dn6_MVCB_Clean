@@ -10,6 +10,8 @@
 		<td>
             Tweaked use of ISchoolDbContextFactory<br/>
             Refactored Components - moved Course components to Courses folder,
+            share SchoolItemEventArgs, SchoolItemViewModel<br/>
+            Fixed problem with saving changed DepartmentID when saving Course edit<br/>
 		</td>
     </tr>
     <tr>

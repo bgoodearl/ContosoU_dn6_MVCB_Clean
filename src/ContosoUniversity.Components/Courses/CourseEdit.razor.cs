@@ -11,7 +11,7 @@ namespace ContosoUniversity.Components.Courses
     {
         [Parameter] public CourseEditDto Course2Edit { get; set; } = new CourseEditDto();
 
-        [Parameter] public EventCallback<CourseEventArgs> CourseAction { get; set; }
+        [Parameter] public EventCallback<SchoolItemEventArgs> SchoolItemAction { get; set; }
 
         [Parameter] public bool NewCourse { get; set; }
 
@@ -135,11 +135,11 @@ namespace ContosoUniversity.Components.Courses
 
         public async Task OnReturnToList()
         {
-            CourseEventArgs args = new CourseEventArgs
+            SchoolItemEventArgs args = new SchoolItemEventArgs
             {
                 UIMode = UIMode.List
             };
-            await CourseAction.InvokeAsync(args);
+            await SchoolItemAction.InvokeAsync(args);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using CU.Application.Shared.ViewModels.Students;
+﻿using CU.Application.Shared.ViewModels;
+using CU.Application.Shared.ViewModels.Students;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Logging;
 using System;
@@ -9,7 +10,7 @@ namespace ContosoUniversity.Components.Students
     public partial class Students
     {
         [Parameter]
-        public StudentsViewModel? StudentsVM { get; set; }
+        public SchoolItemViewModel? StudentsVM { get; set; }
 
         //protected StudentEditDto Student2Edit { get; set; }
         protected string? Message { get; set; }
@@ -22,14 +23,14 @@ namespace ContosoUniversity.Components.Students
         protected ILogger<Students> Logger { get; set; }
 #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 
-        public void StudentAction(StudentEventArgs args)
+        public void StudentAction(SchoolItemEventArgs args)
         {
             if (args != null)
             {
                 Message = null;
                 try
                 {
-                    if (args.StudentID != 0)
+                    if (args.ItemID != 0)
                     {
 
                     }
@@ -48,8 +49,8 @@ namespace ContosoUniversity.Components.Students
                 catch (Exception ex)
                 {
                     Logger.LogError(ex, "Students-StudentAction id={0}, uiMode={1} - {2}: {3}",
-                        args.StudentID, args.UIMode, ex.GetType().Name, ex.Message);
-                    Message = $"Error setting up {args.UIMode} with StudentID = {args.StudentID} - contact Support";
+                        args.ItemID, args.UIMode, ex.GetType().Name, ex.Message);
+                    Message = $"Error setting up {args.UIMode} with StudentID = {args.ItemID} - contact Support";
                 }
             }
         }
