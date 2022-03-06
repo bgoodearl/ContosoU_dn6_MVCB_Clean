@@ -9,6 +9,10 @@ else if (UIMode == UIMode.Create)
 {
     <h1 class="h2">Student - New</h1>
 }
+else if (UIMode == UIMode.Edit)
+{
+    <h1 class="h2">Student - Edit</h1>
+}
 else
 {
     <h1 class="h2">Students? - Blazor</h1>
@@ -24,6 +28,10 @@ else
 else if (UIMode == UIMode.Create)
 {
     <StudentEdit Student2Edit=@Student2Edit NewStudent=true StudentAction="sa => StudentAction(sa)" />
+}
+else if (UIMode == UIMode.Edit)
+{
+    <StudentEdit Student2Edit=@Student2Edit StudentAction="sa => StudentAction(sa)" />
 }
 else
 {

@@ -12,7 +12,9 @@
             Refactored Components - moved Course components to Courses folder,
             share SchoolItemEventArgs, SchoolItemViewModel<br/>
             Fixed problem with saving changed DepartmentID when saving Course edit<br/>
-            Added StudentEdit component<br/>
+            Added StudentEdit component - Create New<br/>
+            Completed StudentEdit - Edit, MediatR command
+            UpdateStudentItemCommand<br/>
 		</td>
     </tr>
     <tr>

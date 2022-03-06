@@ -1,8 +1,11 @@
-﻿using CU.Application.Shared.ViewModels;
+﻿using CU.Application.Shared.DataRequests.SchoolItems.Queries;
+using CU.Application.Shared.ViewModels;
 using CU.Application.Shared.ViewModels.Students;
+using MediatR;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Logging;
 using System;
+using CASE = CU.Application.Shared.Common.Exceptions;
 using static CU.Application.Shared.CommonDefs;
 
 namespace ContosoUniversity.Components.Students
@@ -13,9 +16,9 @@ namespace ContosoUniversity.Components.Students
 
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         [Inject] protected ILogger<Students> Logger { get; set; }
+        [Inject] ISender Mediator { get; set; }
 #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 
-        //protected StudentEditDto Student2Edit { get; set; }
         protected string? Message { get; set; }
         protected UIMode UIMode { get; set; }
         protected StudentListItem? SelectedStudent { get; set; }
@@ -32,7 +35,22 @@ namespace ContosoUniversity.Components.Students
                 {
                     if (args.ItemID != 0)
                     {
-
+                        if (args.UIMode == UIMode.Edit)
+                        {
+                            GetStudentEditDtoQuery query = new GetStudentEditDtoQuery
+                            {
+                                StudentId = args.ItemID
+                            };
+                            Student2Edit = await Mediator.Send(query);
+                            if (Student2Edit != null)
+                            {
+                                UIMode = args.UIMode;
+                            }
+                            else
+                            {
+                                //TODO: Something?  In theory, should never get here
+                            }
+                        }
                     }
                     else
                     {
@@ -53,6 +71,12 @@ namespace ContosoUniversity.Components.Students
                             UIMode = args.UIMode;
                         }
                     }
+                }
+                catch (CASE.NotFoundException ex)
+                {
+                    Logger.LogError(ex, "Students-StudentAction id={0}, uiMode={1} - {2}: {3}",
+                        args.ItemID, args.UIMode, ex.GetType().Name, ex.Message);
+                    Message = $"Error setting up {args.UIMode} with StudentID = {args.ItemID} - Student not found - contact Support";
                 }
                 catch (Exception ex)
                 {

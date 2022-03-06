@@ -13,15 +13,12 @@ namespace ContosoUniversity.Components.Students
     {
         [Parameter] public bool NewStudent { get; set; }
 
-        [Parameter] public StudentEditDto? Student2Edit { get; set; }
+        [Parameter] public StudentEditDto Student2Edit { get; set; } = new StudentEditDto();
 
         [Parameter] public EventCallback<SchoolItemEventArgs> StudentAction { get; set; }
 
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         [Inject] protected ILogger<StudentEdit> Logger { get; set; }
-#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
-
-#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         [Inject] ISender Mediator { get; set; }
 #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 
@@ -31,33 +28,58 @@ namespace ContosoUniversity.Components.Students
         {
             if (NewStudent)
             {
-                if (Student2Edit != null)
-                {
-                    var command = new CreateStudentItemCommand(Student2Edit);
+                var command = new CreateStudentItemCommand(Student2Edit);
 
-                    try
+                try
+                {
+                    int newStudentId = await Mediator.Send(command);
+                    if (newStudentId != 0)
                     {
-                        int newStudentId = await Mediator.Send(command);
-                        if (newStudentId != 0)
-                        {
-                            await OnReturnToList();
-                        }
+                        await OnReturnToList();
                     }
-                    catch (CASE.ValidationException ex)
-                    {
-                        Logger.LogError(ex, "StudentEdit: HandleValidSubmitAsync {0}: {1}",
-                            ex.GetType().Name, ex.Message);
-                    }
-                    catch (Exception ex)
-                    {
-                        Logger.LogError(ex, "StudentEdit: HandleValidSubmitAsync {0}: {1}",
-                            ex.GetType().Name, ex.Message);
-                    }
+                }
+                catch (CASE.ValidationException ex)
+                {
+                    Logger.LogError(ex, "StudentEdit: HandleValidSubmitAsync {0}: {1}",
+                        ex.GetType().Name, ex.Message);
+                }
+                catch (Exception ex)
+                {
+                    Logger.LogError(ex, "StudentEdit: HandleValidSubmitAsync {0}: {1}",
+                        ex.GetType().Name, ex.Message);
                 }
             }
             else
             {
+                var command = new UpdateStudentItemCommand(Student2Edit);
 
+                try
+                {
+                    int studentId = await Mediator.Send(command);
+                    if (studentId != 0) //TODO: does value of studentId need to be checked here?
+                    {
+                        await OnReturnToList();
+                    }
+                }
+                catch (CASE.NotFoundException ex)
+                {
+                    Logger.LogError(ex, "StudentEdit({0}): HandleValidSubmitAsync {1}: {2}",
+                        Student2Edit.ID, ex.GetType().Name, ex.Message);
+                    Message = $"Error saving StudentID = {Student2Edit.ID} - Student not found";
+                }
+                catch (CASE.ValidationException ex)
+                {
+                    //TODO: Handle validation messages
+                    Logger.LogError(ex, "StudentEdit({0}): HandleValidSubmitAsync {1}: {2}",
+                        Student2Edit.ID, ex.GetType().Name, ex.Message);
+                    Message = $"Validation error saving student";
+                }
+                catch (Exception ex)
+                {
+                    Logger.LogError(ex, "StudentEdit({0}): HandleValidSubmitAsync {1}: {2}",
+                        Student2Edit.ID, ex.GetType().Name, ex.Message);
+                    Message = $"System error saving student";
+                }
             }
         }
 
