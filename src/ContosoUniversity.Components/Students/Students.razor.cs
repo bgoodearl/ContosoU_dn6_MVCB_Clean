@@ -9,21 +9,21 @@ namespace ContosoUniversity.Components.Students
 {
     public partial class Students
     {
-        [Parameter]
-        public SchoolItemViewModel? StudentsVM { get; set; }
+        [Parameter] public SchoolItemViewModel? StudentsVM { get; set; }
+
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+        [Inject] protected ILogger<Students> Logger { get; set; }
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 
         //protected StudentEditDto Student2Edit { get; set; }
         protected string? Message { get; set; }
         protected UIMode UIMode { get; set; }
         protected StudentListItem? SelectedStudent { get; set; }
         //protected StudentItem SelectedCourseDetails { get; set; }
+        protected StudentEditDto? Student2Edit { get; set; }
 
-        [Inject]
-#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
-        protected ILogger<Students> Logger { get; set; }
-#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 
-        public void StudentAction(SchoolItemEventArgs args)
+        public async Task StudentAction(SchoolItemEventArgs args)
         {
             if (args != null)
             {
@@ -44,6 +44,14 @@ namespace ContosoUniversity.Components.Students
                             }
                             UIMode = args.UIMode;
                         }
+                        else if (args.UIMode == UIMode.Create)
+                        {
+                            Student2Edit = new StudentEditDto
+                            {
+                                EnrollmentDate = DateTime.Now.Date
+                            };
+                            UIMode = args.UIMode;
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -54,6 +62,19 @@ namespace ContosoUniversity.Components.Students
                 }
             }
         }
+
+        #region events
+
+        protected async Task OnCreateStudent()
+        {
+            SchoolItemEventArgs args = new SchoolItemEventArgs
+            {
+                UIMode = UIMode.Create
+            };
+            await StudentAction(args);
+        }
+
+        #endregion events
 
     }
 }

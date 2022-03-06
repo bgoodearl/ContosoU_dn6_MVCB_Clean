@@ -8,26 +8,23 @@ using CU.Application.Shared.ViewModels.Students;
 using MediatR;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Logging;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using static CU.Application.Shared.CommonDefs;
 
 namespace ContosoUniversity.Components.Students
 {
     public partial class StudentList
     {
-#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
-        [Inject] ISender Mediator { get; set; }
-#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+        [Parameter] public SchoolItemViewModel? StudentsVM { get; set; }
+
+        [Parameter] public EventCallback<SchoolItemEventArgs> StudentAction { get; set; }
 
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         [Inject] ILogger<StudentList> Logger { get; set; }
 #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 
-        [Parameter] public SchoolItemViewModel? StudentsVM { get; set; }
-
-        [Parameter] public EventCallback<SchoolItemEventArgs> StudentAction { get; set; }
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+        [Inject] ISender Mediator { get; set; }
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 
         protected bool Loading { get; set; }
 
@@ -117,11 +114,11 @@ namespace ContosoUniversity.Components.Students
         }
 
         //Uncomment OnInitializedAsync() if needed for debugging problems with initial loading
-        //protected override async Task OnInitializedAsync()
-        //{
-        //    bool shouldLoad = ((Mediator != null) && !Loading && (StudentItemList.Count() == 0));
-        //    if (Logger != null) { Logger.LogDebug($"StudentList.OnInitializedAsync shouldLoad={shouldLoad}"); }
-        //}
+        protected override async Task OnInitializedAsync()
+        {
+            bool shouldLoad = ((Mediator != null) && !Loading && (StudentItemList.Count() == 0));
+            if (Logger != null) { Logger.LogDebug($"StudentList.OnInitializedAsync shouldLoad={shouldLoad}"); }
+        }
 
         #endregion events
 

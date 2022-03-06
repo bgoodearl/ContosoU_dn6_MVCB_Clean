@@ -3,9 +3,11 @@
 @if (UIMode == UIMode.List)
 {
     <h1 class="h2">Students - Blazor</h1>
-    @*<div>
-            <button @onclick="() => OnCreateStudent()" class="btn" style="background-color:lightgray;">Create Student</button>
-        </div>*@
+    <button @onclick="() => OnCreateStudent()" class="btn" style="background-color:lightgray;">Create Student</button>
+}
+else if (UIMode == UIMode.Create)
+{
+    <h1 class="h2">Student - New</h1>
 }
 else
 {
@@ -18,6 +20,10 @@ else
 @if (UIMode == UIMode.List)
 {
     <StudentList StudentsVM=@StudentsVM StudentAction="ca => StudentAction(ca)" />
+}
+else if (UIMode == UIMode.Create)
+{
+    <StudentEdit Student2Edit=@Student2Edit NewStudent=true StudentAction="sa => StudentAction(sa)" />
 }
 else
 {
