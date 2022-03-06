@@ -18,6 +18,8 @@
             Added GetInstructorListItemsWithPaginationQuery, test<br/>
             Added razor components: Instructors, InstructorList<br/>
             Updated Instructors Index MVC page to use razor components by default<br/>
+            Added optional InstructorID to GetCourseListItemsWithPaginationQuery,
+            updated handler, added test<br/>
 		</td>
     </tr>
     <tr>
