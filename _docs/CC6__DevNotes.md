@@ -6,6 +6,12 @@
 		<th>Notes</th>
     </tr>
     <tr>
+        <td>4/1/2022</td><td>bg</td>
+            Changed render-mode for Blazor components to "Server"<br/>
+		<td>
+		</td>
+    </tr>
+    <tr>
         <td>3/6/2022</td><td>bg</td>
 		<td>
             Added GetCourseListItemsQuery with handler and test<br/>
