@@ -9,6 +9,7 @@
         <td>5/17/2022</td><td>bg</td>
 		<td>
             Started experiments with many-to-many Course and CoursePresentationType<br/>
+            Was able to rename table to _coursesPresentationTypes and column name to CourseID<br/>
 		</td>
     </tr>
     <tr>
