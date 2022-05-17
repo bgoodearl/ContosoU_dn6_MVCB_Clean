@@ -6,6 +6,19 @@
 		<th>Notes</th>
     </tr>
     <tr>
+        <td>5/17/2022</td><td>bg</td>
+		<td>
+            Started experiments with many-to-many Course and CoursePresentationType<br/>
+		</td>
+    </tr>
+    <tr>
+        <td>5/16/2022</td><td>bg</td>
+		<td>
+            Branch - with_lookups:
+            Added CoursePresentationType and DepartmentFacilityType<br/>
+		</td>
+    </tr>
+    <tr>
         <td>5/9/2022</td><td>bg</td>
 		<td>
             Fix problem with first instructor's courses<br/>
