@@ -91,6 +91,12 @@ namespace CU.Infrastructure.Persistence
             //*******************************************
             #region LookupBaseWith2cKey Subclass Mappings
 
+            modelBuilder.Entity<LookupType>(e =>
+            {
+                e.HasKey(x => x.Id);
+                e.ToTable("xLookupTypes");
+            });
+
             modelBuilder.Entity<LookupBaseWith2cKey>(e =>
             {
                 e.HasKey(l => new { l.LookupTypeId, l.Code });

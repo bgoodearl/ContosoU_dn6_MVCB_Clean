@@ -1,8 +1,8 @@
-﻿USE ContosoUniversity_dev22; --Database used for Migrations
+﻿USE ContosoU_dn6_dev; --Database used for Migrations
 BEGIN TRANSACTION;
 GO
 
-IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20220516143358_CU6_M04_AddLookups')
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20220518190104_CU6_M04_AddLookups')
 BEGIN
     CREATE TABLE [xLookups2cKey] (
         [Code] nvarchar(2) NOT NULL,
@@ -14,16 +14,27 @@ BEGIN
 END;
 GO
 
-IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20220516143358_CU6_M04_AddLookups')
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20220518190104_CU6_M04_AddLookups')
+BEGIN
+    CREATE TABLE [xLookupTypes] (
+        [Id] smallint NOT NULL,
+        [TypeName] nvarchar(50) NOT NULL,
+        [BaseTypeName] nvarchar(50) NOT NULL,
+        CONSTRAINT [PK_xLookupTypes] PRIMARY KEY ([Id])
+    );
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20220518190104_CU6_M04_AddLookups')
 BEGIN
     CREATE UNIQUE INDEX [LookupTypeAndName] ON [xLookups2cKey] ([LookupTypeId], [Name]);
 END;
 GO
 
-IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20220516143358_CU6_M04_AddLookups')
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20220518190104_CU6_M04_AddLookups')
 BEGIN
     INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
-    VALUES (N'20220516143358_CU6_M04_AddLookups', N'6.0.2');
+    VALUES (N'20220518190104_CU6_M04_AddLookups', N'6.0.2');
 END;
 GO
 

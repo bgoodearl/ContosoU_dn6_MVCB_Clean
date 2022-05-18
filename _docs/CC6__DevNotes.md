@@ -9,6 +9,9 @@
         <td>5/18/2022</td><td>bg</td>
 		<td>
             Removed migration CU6_M04_AddLookups<br/>
+            Updated SchoolDbContext from .NET Core 3.1 solution<br/>
+            Re-ran migration CU6_M04_AddLookups<br/>
+            Copied LookupTypeTests from .NET Core 3.1 solution<br/>
 		</td>
     </tr>
     <tr>
