@@ -12,6 +12,8 @@
             Updated SchoolDbContext from .NET Core 3.1 solution<br/>
             Re-ran migration CU6_M04_AddLookups<br/>
             Copied LookupTypeTests from .NET Core 3.1 solution<br/>
+            Restored many-to-many relationship between Course and 
+            CoursePresentationType, regenerated diagram<br/>
 		</td>
     </tr>
     <tr>
