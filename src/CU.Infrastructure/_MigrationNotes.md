@@ -61,11 +61,11 @@ Script-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp -From C
 Script-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp -From CU6_M03_AddCourseInstructorLink -To CU6_M04_AddLookups -output .\SqlScripts\Schema\CU6_M04_AddLookups.sql
 ```
 
-# CU6_M04a_CourseXLookup
+# CU6_M04a_Course_CPT
 
-Add-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp CU6_M04a_CourseXLookup
-Script-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp -From CU6_M04_AddLookups -To CU6_M04_AddLookups -output .\SqlScripts\Schema\CU6_M04a_CourseXLookup_idempotent.sql -Idempotent
-Script-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp -From CU6_M04_AddLookups -To CU6_M04_AddLookups -output .\SqlScripts\Schema\CU6_M04a_CourseXLookup.sql
+Add-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp CU6_M04a_Course_CPT
+Script-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp -From CU6_M04_AddLookups -To CU6_M04a_Course_CPT -output .\SqlScripts\Schema\CU6_M04a_Course_CPT_idempotent.sql -Idempotent
+Script-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp -From CU6_M04_AddLookups -To CU6_M04a_Course_CPT -output .\SqlScripts\Schema\CU6_M04a_Course_CPT.sql
 ```
 
 #### What's in Migrations
@@ -76,4 +76,4 @@ CU6_M01_ExistingSchemaBase_2022 | match for base of existing schema from prior i
 CU6_M02_AddEnrollment           | added Enrollment table with links to Course and Student
 CU6_M03_AddCourseInstructorLink | added many-to-many link between Course and Instructor
 CU6_M04_AddLookups              | added 2 lookup types with single table xLookups2cKey
-CU6_M04a_CourseXLookup          |
+CU6_M04a_Course_CPT             | adds many-to-many join between Course and CoursePresentationType

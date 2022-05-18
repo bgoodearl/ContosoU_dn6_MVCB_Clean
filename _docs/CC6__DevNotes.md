@@ -14,6 +14,7 @@
             Copied LookupTypeTests from .NET Core 3.1 solution<br/>
             Restored many-to-many relationship between Course and 
             CoursePresentationType, regenerated diagram<br/>
+            Ran migration CU6_M04a_Course_CPT<br/>
 		</td>
     </tr>
     <tr>
