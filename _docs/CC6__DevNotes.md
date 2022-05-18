@@ -10,6 +10,7 @@
 		<td>
             Started experiments with many-to-many Course and CoursePresentationType<br/>
             Was able to rename table to _coursesPresentationTypes and column name to CourseID<br/>
+            Removed migration CU6_M04a_CourseXLookup
 		</td>
     </tr>
     <tr>
