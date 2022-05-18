@@ -32,18 +32,18 @@ namespace CU.Infrastructure.Persistence
                             j.ToTable("CourseInstructor");
                         });
 
-                //e.HasMany(e => e.CoursePresentationTypes).WithMany(p => p.Courses)
-                //    .UsingEntity(
-                //        join =>
-                //        {
-                //            join.ToTable("_coursesPresentationTypes")
-                //                .Property<int>("CoursesCourseId").HasColumnName("CourseID");
-                //            //join.ToTable("_coursesPresentationTypes")
-                //            //    .Property<int>("CoursePresentationTypesLookupTypeId").HasColumnName("LookupTypeId");
-                //            //join.ToTable("_coursesPresentationTypes")
-                //            //    .Property<int>("CoursePresentationTypesCode").HasColumnName("CoursePresentationTypeCode");
-                //        }
-                //    );
+                e.HasMany(e => e.CoursePresentationTypes).WithMany(p => p.Courses)
+                    .UsingEntity(
+                        join =>
+                        {
+                            join.ToTable("_coursesPresentationTypes")
+                                .Property<int>("CoursesCourseId").HasColumnName("CourseID");
+                            //join.ToTable("_coursesPresentationTypes")
+                            //    .Property<int>("CoursePresentationTypesLookupTypeId").HasColumnName("LookupTypeId");
+                            //join.ToTable("_coursesPresentationTypes")
+                            //    .Property<int>("CoursePresentationTypesCode").HasColumnName("CoursePresentationTypeCode");
+                        }
+                    );
             });
 
             modelBuilder.Entity<Department>(e =>
