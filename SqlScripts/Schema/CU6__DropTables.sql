@@ -1,4 +1,4 @@
-USE ContosoUniversity_dev22;
+USE ContosoU_dn6_dev;
 GO
 
 Declare   @DoClean bit;

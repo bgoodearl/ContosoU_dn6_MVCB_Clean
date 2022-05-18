@@ -1,4 +1,4 @@
-﻿USE ContosoUniversity_dev22; --Database used for Migrations
+﻿USE ContosoU_dn6_dev; --Database used for Migrations
 GO
 
 IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL

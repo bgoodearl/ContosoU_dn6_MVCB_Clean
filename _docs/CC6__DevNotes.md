@@ -6,6 +6,12 @@
 		<th>Notes</th>
     </tr>
     <tr>
+        <td>5/18/2022</td><td>bg</td>
+		<td>
+            Removed migration CU6_M04_AddLookups<br/>
+		</td>
+    </tr>
+    <tr>
         <td>5/17/2022</td><td>bg</td>
 		<td>
             Started experiments with many-to-many Course and CoursePresentationType<br/>
