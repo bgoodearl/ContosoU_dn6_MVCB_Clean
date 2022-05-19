@@ -14,6 +14,7 @@
             Added seeding of lookup data, tweaked SeedData in CoursesController<br/>
             Added changes necessary for migration CU6_M04a_Course_CPT, updated diagram<br/>
             Ran migration CU6_M04a_Course_CPT, generated SQL scripts for migration<br/>
+            Added migration CU6_M04b_Course_CPT_fix - generated empty migration<br/>
 		</td>
     </tr>
     <tr>
