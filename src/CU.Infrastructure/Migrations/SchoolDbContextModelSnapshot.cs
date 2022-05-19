@@ -262,8 +262,6 @@ namespace CU.Infrastructure.Migrations
             modelBuilder.Entity("ContosoUniversity.Models.Lookups.CoursePresentationType", b =>
                 {
                     b.HasBaseType("ContosoUniversity.Models.Lookups.LookupBaseWith2cKey");
-
-                    b.HasDiscriminator().HasValue((short)1);
                 });
 
             modelBuilder.Entity("ContosoUniversity.Models.Lookups.RandomLookupType", b =>
