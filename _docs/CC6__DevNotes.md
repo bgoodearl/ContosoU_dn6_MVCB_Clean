@@ -20,6 +20,7 @@
             Added changes to do many-to-many from Department to DepartmentFacilityType,
             but migration CU6_M04b_Department_DFT blows up.<br/>
             Backed out manual changes to migration CU6_M04a_Course_CPT<br/>
+            Added SQL scripts from generated code for CU6_M04a_Course_CPT<br/>
 		</td>
     </tr>
     <tr>

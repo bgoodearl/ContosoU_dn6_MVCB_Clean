@@ -11,6 +11,13 @@ If ISNULL(@DoClean,0) != 1 Begin
 End Else Begin
 	Print '';
 
+	IF OBJECT_ID(N'[_coursesPresentationTypes]') IS NOT NULL BEGIN
+		DROP TABLE dbo._coursesPresentationTypes;
+		Print 'Dropped table _coursesPresentationTypes';
+	END ELSE BEGIN
+		Print 'Table _coursesPresentationTypes does not exist';
+	END;
+
 	IF OBJECT_ID(N'[CourseInstructor]') IS NOT NULL BEGIN
 		DROP TABLE dbo.CourseInstructor;
 		Print 'Dropped table CourseInstructor';
@@ -58,6 +65,20 @@ End Else Begin
 		Print 'Dropped table Student';
 	END ELSE BEGIN
 		Print 'Table Student does not exist';
+	END;
+
+	IF OBJECT_ID(N'[xLookups2cKey]') IS NOT NULL BEGIN
+		DROP TABLE dbo.xLookups2cKey;
+		Print 'Dropped table xLookups2cKey';
+	END ELSE BEGIN
+		Print 'Table xLookups2cKey does not exist';
+	END;
+
+	IF OBJECT_ID(N'[xLookupTypes]') IS NOT NULL BEGIN
+		DROP TABLE dbo.xLookupTypes;
+		Print 'Dropped table xLookupTypes';
+	END ELSE BEGIN
+		Print 'Table xLookupTypes does not exist';
 	END;
 
 	IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NOT NULL BEGIN

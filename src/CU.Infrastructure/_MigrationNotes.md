@@ -68,11 +68,18 @@ Script-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp -From C
 Script-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp -From CU6_M04_AddLookups -To CU6_M04a_Course_CPT -output .\SqlScripts\Schema\CU6_M04a_Course_CPT.sql
 ```
 
-# CU6_M04b_Department_DFT
+# CU6_M04b_Course_CPT_fix
 
-Add-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp CU6_M04b_Department_DFT
-Script-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp -From CU6_M04a_Course_CPT -To CU6_M04b_Department_DFT -output .\SqlScripts\Schema\CU6_M04b_Department_DFT_idempotent.sql -Idempotent
-Script-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp -From CU6_M04a_Course_CPT -To CU6_M04b_Department_DFT -output .\SqlScripts\Schema\CU6_M04b_Department_DFT.sql
+Add-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp CU6_M04b_Course_CPT_fix
+Script-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp -From CU6_M04a_Course_CPT -To CU6_M04b_Course_CPT_fix -output .\SqlScripts\Schema\CU6_M04b_Course_CPT_fix_idempotent.sql -Idempotent
+Script-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp -From CU6_M04a_Course_CPT -To CU6_M04b_Course_CPT_fix -output .\SqlScripts\Schema\CU6_M04b_Course_CPT_fix.sql
+```
+
+# CU6_M04c_Department_DFT
+
+Add-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp CU6_M04c_Department_DFT
+Script-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp -From CU6_M04b_Course_CPT_fix -To CU6_M04c_Department_DFT -output .\SqlScripts\Schema\CU6_M04c_Department_DFT_idempotent.sql -Idempotent
+Script-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp -From CU6_M04b_Course_CPT_fix -To CU6_M04b_Department_DFT -output .\SqlScripts\Schema\CU6_M04c_Department_DFT.sql
 ```
 
 #### What's in Migrations
@@ -84,4 +91,5 @@ CU6_M02_AddEnrollment           | added Enrollment table with links to Course an
 CU6_M03_AddCourseInstructorLink | added many-to-many link between Course and Instructor
 CU6_M04_AddLookups              | added 2 lookup types with single table xLookups2cKey
 CU6_M04a_Course_CPT             | adds many-to-many join between Course and CoursePresentationType
-CU6_M04b_Department_DFT         | adds many-to-many join between Department and DepartmentFacilityType
+CU6_M04b_Course_CPT_fix         | fixes join table column names
+CU6_M04c_Department_DFT         | adds many-to-many join between Department and DepartmentFacilityType
