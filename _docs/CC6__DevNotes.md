@@ -10,6 +10,8 @@
 		<td>
             Branch - with_lookups2: backed out migration CU6_M04_AddLookups<br/>
             Commented out DepartmentFacilityType, added RandomLookupType so there are at least 2 lookups<br/>
+            Ran migration CU6_M04_AddLookups, generated SQL scripts for migration<br/>
+            Added seeding of lookup data, tweaked SeedData in CoursesController<br/>
 		</td>
     </tr>
     <tr>
