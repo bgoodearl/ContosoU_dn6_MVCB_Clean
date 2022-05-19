@@ -32,11 +32,11 @@ namespace CU.Infrastructure.Persistence
                             j.ToTable("CourseInstructor");
                         });
 
-       //         e.HasMany(e => e.CoursePresentationTypes).WithMany(p => p.Courses)
-       //             .UsingEntity(
-       //                 join => join.ToTable("_coursesPresentationTypes")
-							//.Property<int>("CoursesCourseId").HasColumnName("CourseID")
-       //             );
+                e.HasMany(e => e.CoursePresentationTypes).WithMany(p => p.Courses)
+                    .UsingEntity(
+                        join => join.ToTable("_coursesPresentationTypes")
+                            .Property<int>("CoursesCourseId").HasColumnName("CourseID")
+                    );
             });
 
             modelBuilder.Entity<Department>(e =>
