@@ -13,6 +13,7 @@
             Ran migration CU6_M04_AddLookups, generated SQL scripts for migration<br/>
             Added seeding of lookup data, tweaked SeedData in CoursesController<br/>
             Added changes necessary for migration CU6_M04a_Course_CPT, updated diagram<br/>
+            Ran migration CU6_M04a_Course_CPT, generated SQL scripts for migration<br/>
 		</td>
     </tr>
     <tr>
