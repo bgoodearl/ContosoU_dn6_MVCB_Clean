@@ -11,6 +11,7 @@
             Removed migration CU6_M04b_Course_CPT_fix<br/>
             EF "Remove-Migration" removed migration files, but also changed snapshot - removing code
             added in a previous migration.<br/>
+            Restored snapshot change<br/>
 		</td>
     </tr>
     <tr>
