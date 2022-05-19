@@ -18,6 +18,10 @@ the test database used for building migrations.
 
 [Entity Framework Core tools reference - Package Manager Console in Visual Studio](https://docs.microsoft.com/en-us/ef/core/cli/powershell)
 
+```powershell
+get-help about_EntityFrameworkCore
+```
+
 Quick check of environment for Package Manager Console
 ```powershell
 Get-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp
@@ -50,7 +54,7 @@ Script-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp -From C
 Script-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp -From CU6_M02_AddEnrollment -To CU6_M03_AddCourseInstructorLink -output .\SqlScripts\Schema\CU6_M03_AddCourseInstructorLink.sql
 ```
 
-# CU6_M03_AddCourseInstructorLink
+# CU6_M04_AddLookups
 
 Add-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp CU6_M04_AddLookups
 Script-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp -From CU6_M03_AddCourseInstructorLink -To CU6_M04_AddLookups -output .\SqlScripts\Schema\CU6_M04_AddLookups_idempotent.sql -Idempotent

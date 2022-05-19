@@ -1,9 +1,6 @@
 ﻿using CU.Definitions.Lookups;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
 
 namespace ContosoUniversity.Models.Lookups
 {
@@ -18,14 +15,14 @@ namespace ContosoUniversity.Models.Lookups
             Id = (short)cLookupType;
             CLookupType = cLookupType;
             TypeName = lookupType.Name;
-            if (lookupType.BaseType.Name.Equals(typeof(Object).Name))
+            if ((lookupType.BaseType == null) || lookupType.BaseType.Name.Equals(typeof(Object).Name))
                 BaseTypeName = lookupType.Name;
             else
                 BaseTypeName = lookupType.BaseType.Name;
         }
 
 
-        private static List<LookupType> _lookupTypesList = null;
+        private static List<LookupType>? _lookupTypesList = null;
 
         public static List<LookupType> LookupTypesList
         {
@@ -36,14 +33,15 @@ namespace ContosoUniversity.Models.Lookups
                     _lookupTypesList = new List<LookupType>()
                     {
                         new LookupType(CULookupTypes.CoursePresentationType, typeof(CoursePresentationType)), //1
-                        new LookupType(CULookupTypes.DepartmentFacilityType, typeof(DepartmentFacilityType))
+                        //new LookupType(CULookupTypes.DepartmentFacilityType, typeof(DepartmentFacilityType))
+                        new LookupType(CULookupTypes.RandomLookupType, typeof(RandomLookupType))
                     };
                 }
                 return _lookupTypesList;
             }
         }
 
-        public static LookupType GetLookupType(CULookupTypes lookupType)
+        public static LookupType? GetLookupType(CULookupTypes lookupType)
         {
             return LookupTypesList.Where(lt => lt.CLookupType == lookupType).FirstOrDefault();
         }
@@ -55,6 +53,11 @@ namespace ContosoUniversity.Models.Lookups
                 lookupType = (CULookupTypes)lookupTypeId;
 
             return lookupType;
+        }
+
+        public static List<LookupType> GetDbInitializationList()
+        {
+            return LookupTypesList;
         }
 
         [Key]

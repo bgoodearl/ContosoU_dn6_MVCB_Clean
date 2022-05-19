@@ -133,35 +133,6 @@ namespace CU.Infrastructure.Migrations
                     b.ToTable("Instructor", (string)null);
                 });
 
-            modelBuilder.Entity("ContosoUniversity.Models.Lookups.LookupBaseWith2cKey", b =>
-                {
-                    b.Property<short>("LookupTypeId")
-                        .HasColumnType("smallint");
-
-                    b.Property<string>("Code")
-                        .HasMaxLength(2)
-                        .HasColumnType("nvarchar(2)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<short>("SubType")
-                        .HasColumnType("smallint")
-                        .HasColumnName("_SubType");
-
-                    b.HasKey("LookupTypeId", "Code");
-
-                    b.HasIndex("LookupTypeId", "Name")
-                        .IsUnique()
-                        .HasDatabaseName("LookupTypeAndName");
-
-                    b.ToTable("xLookups2cKey", (string)null);
-
-                    b.HasDiscriminator<short>("SubType");
-                });
-
             modelBuilder.Entity("ContosoUniversity.Models.OfficeAssignment", b =>
                 {
                     b.Property<int>("InstructorID")
@@ -218,20 +189,6 @@ namespace CU.Infrastructure.Migrations
                     b.HasIndex("InstructorID");
 
                     b.ToTable("CourseInstructor", (string)null);
-                });
-
-            modelBuilder.Entity("ContosoUniversity.Models.Lookups.CoursePresentationType", b =>
-                {
-                    b.HasBaseType("ContosoUniversity.Models.Lookups.LookupBaseWith2cKey");
-
-                    b.HasDiscriminator().HasValue((short)1);
-                });
-
-            modelBuilder.Entity("ContosoUniversity.Models.Lookups.DepartmentFacilityType", b =>
-                {
-                    b.HasBaseType("ContosoUniversity.Models.Lookups.LookupBaseWith2cKey");
-
-                    b.HasDiscriminator().HasValue((short)2);
                 });
 
             modelBuilder.Entity("ContosoUniversity.Models.Course", b =>

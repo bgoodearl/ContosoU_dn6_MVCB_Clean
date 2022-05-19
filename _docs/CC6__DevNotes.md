@@ -6,6 +6,13 @@
 		<th>Notes</th>
     </tr>
     <tr>
+        <td>5/18/2022</td><td>bg</td>
+		<td>
+            Branch - with_lookups2: backed out migration CU6_M04_AddLookups<br/>
+            Commented out DepartmentFacilityType, added RandomLookupType so there are at least 2 lookups<br/>
+		</td>
+    </tr>
+    <tr>
         <td>5/17/2022</td><td>bg</td>
 		<td>
             Started experiments with many-to-many Course and CoursePresentationType<br/>

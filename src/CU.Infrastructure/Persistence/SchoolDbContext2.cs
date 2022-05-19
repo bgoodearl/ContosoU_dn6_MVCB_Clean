@@ -32,10 +32,11 @@ namespace CU.Infrastructure.Persistence
                             j.ToTable("CourseInstructor");
                         });
 
-                e.HasMany(e => e.CoursePresentationTypes).WithMany(p => p.Courses)
-                    .UsingEntity(
-                        join => join.ToTable("_coursesPresentationTypes").Property<int>("CoursesCourseId").HasColumnName("CourseID")
-                    );
+       //         e.HasMany(e => e.CoursePresentationTypes).WithMany(p => p.Courses)
+       //             .UsingEntity(
+       //                 join => join.ToTable("_coursesPresentationTypes")
+							//.Property<int>("CoursesCourseId").HasColumnName("CourseID")
+       //             );
             });
 
             modelBuilder.Entity<Department>(e =>
@@ -83,6 +84,12 @@ namespace CU.Infrastructure.Persistence
             //*******************************************
             #region LookupBaseWith2cKey Subclass Mappings
 
+            modelBuilder.Entity<LookupType>(e =>
+            {
+                e.HasKey(x => x.Id);
+                e.ToTable("xLookupTypes");
+            });
+
             modelBuilder.Entity<LookupBaseWith2cKey>(e =>
             {
                 e.HasKey(l => new { l.LookupTypeId, l.Code });
@@ -98,7 +105,8 @@ namespace CU.Infrastructure.Persistence
 
                 e.HasDiscriminator<short>(x => x.SubType)
                     .HasValue<CoursePresentationType>((short)CULookupTypes.CoursePresentationType)
-                    .HasValue<DepartmentFacilityType>((short)CULookupTypes.DepartmentFacilityType)
+                    //.HasValue<DepartmentFacilityType>((short)CULookupTypes.DepartmentFacilityType)
+                    .HasValue<RandomLookupType>((short)CULookupTypes.RandomLookupType)
                 ;
 
             });

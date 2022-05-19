@@ -1,4 +1,4 @@
-USE ContosoUniversity_dev22;
+USE ContosoU_dn6_dev;
 GO
 
 Declare   @DoClean bit;
@@ -10,6 +10,13 @@ If ISNULL(@DoClean,0) != 1 Begin
 	RAISERROR('Run again with @DoClean=1 to drop tables', 16, 1);
 End Else Begin
 	Print '';
+
+	IF OBJECT_ID(N'[_coursesPresentationTypes]') IS NOT NULL BEGIN
+		DROP TABLE dbo._coursesPresentationTypes;
+		Print 'Dropped table _coursesPresentationTypes';
+	END ELSE BEGIN
+		Print 'Table _coursesPresentationTypes does not exist';
+	END;
 
 	IF OBJECT_ID(N'[CourseInstructor]') IS NOT NULL BEGIN
 		DROP TABLE dbo.CourseInstructor;
@@ -58,6 +65,20 @@ End Else Begin
 		Print 'Dropped table Student';
 	END ELSE BEGIN
 		Print 'Table Student does not exist';
+	END;
+
+	IF OBJECT_ID(N'[xLookups2cKey]') IS NOT NULL BEGIN
+		DROP TABLE dbo.xLookups2cKey;
+		Print 'Dropped table xLookups2cKey';
+	END ELSE BEGIN
+		Print 'Table xLookups2cKey does not exist';
+	END;
+
+	IF OBJECT_ID(N'[xLookupTypes]') IS NOT NULL BEGIN
+		DROP TABLE dbo.xLookupTypes;
+		Print 'Dropped table xLookupTypes';
+	END ELSE BEGIN
+		Print 'Table xLookupTypes does not exist';
 	END;
 
 	IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NOT NULL BEGIN

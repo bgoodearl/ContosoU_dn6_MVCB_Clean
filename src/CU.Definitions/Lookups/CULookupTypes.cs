@@ -3,6 +3,7 @@
     public enum CULookupTypes
     {
         CoursePresentationType = 1,
-        DepartmentFacilityType = 2
+        DepartmentFacilityType = 2,
+        RandomLookupType = 3
     };
 }
