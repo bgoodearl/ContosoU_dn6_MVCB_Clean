@@ -55,14 +55,14 @@ namespace CU.Infrastructure.Persistence
                 e.HasOne(d => d.Administrator).WithMany()
                     .HasForeignKey(d => d.InstructorID).IsRequired(false).OnDelete(DeleteBehavior.Restrict);
 
-                e.HasMany(d => d.DepartmentFacilityTypes).WithMany(dft => dft.Departments)
-                    .UsingEntity(
-                        join =>
-                        {
-                            join.ToTable("_departmentsFacilityTypes")
-                                .Property<int>("DepartmentsDepartmentID").HasColumnName("DepartmentID");
-                        }
-                    );
+                //e.HasMany(d => d.DepartmentFacilityTypes).WithMany(dft => dft.Departments)
+                //    .UsingEntity(
+                //        join =>
+                //        {
+                //            join.ToTable("_departmentsFacilityTypes")
+                //                .Property<int>("DepartmentsDepartmentID").HasColumnName("DepartmentID");
+                //        }
+                //    );
             });
 
             modelBuilder.Entity<Enrollment>(e =>

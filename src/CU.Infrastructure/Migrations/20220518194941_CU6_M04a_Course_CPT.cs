@@ -13,12 +13,12 @@ namespace CU.Infrastructure.Migrations
                 columns: table => new
                 {
                     CourseID = table.Column<int>(type: "int", nullable: false),
-                    LookupTypeId = table.Column<short>(type: "smallint", nullable: false),
-                    CoursePresentationTypeCode = table.Column<string>(type: "nvarchar(2)", nullable: false)
+                    CoursePresentationTypesLookupTypeId = table.Column<short>(type: "smallint", nullable: false),
+                    CoursePresentationTypesCode = table.Column<string>(type: "nvarchar(2)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK__coursesPresentationTypes", x => new { x.CourseID, x.LookupTypeId, x.CoursePresentationTypeCode });
+                    table.PrimaryKey("PK__coursesPresentationTypes", x => new { x.CourseID, x.CoursePresentationTypesLookupTypeId, x.CoursePresentationTypesCode });
                     table.ForeignKey(
                         name: "FK__coursesPresentationTypes_Course_CourseID",
                         column: x => x.CourseID,
@@ -26,17 +26,17 @@ namespace CU.Infrastructure.Migrations
                         principalColumn: "CourseID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK__coursesPresentationTypes_xLookups2cKey_LookupTypeId_CoursePresentationTypeCode",
-                        columns: x => new { x.LookupTypeId, x.CoursePresentationTypeCode },
+                        name: "FK__coursesPresentationTypes_xLookups2cKey_CoursePresentationTypesLookupTypeId_CoursePresentationTypesCode",
+                        columns: x => new { x.CoursePresentationTypesLookupTypeId, x.CoursePresentationTypesCode },
                         principalTable: "xLookups2cKey",
                         principalColumns: new[] { "LookupTypeId", "Code" },
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX__coursesPresentationTypes_LookupTypeId_CoursePresentationTypeCode",
+                name: "IX__coursesPresentationTypes_CoursePresentationTypesLookupTypeId_CoursePresentationTypesCode",
                 table: "_coursesPresentationTypes",
-                columns: new[] { "LookupTypeId", "CoursePresentationTypeCode" });
+                columns: new[] { "CoursePresentationTypesLookupTypeId", "CoursePresentationTypesCode" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

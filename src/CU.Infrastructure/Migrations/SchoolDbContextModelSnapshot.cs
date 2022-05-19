@@ -232,16 +232,14 @@ namespace CU.Infrastructure.Migrations
                         .HasColumnName("CourseID");
 
                     b.Property<short>("CoursePresentationTypesLookupTypeId")
-                        .HasColumnType("smallint")
-                        .HasColumnName("LookupTypeId");
+                        .HasColumnType("smallint");
 
                     b.Property<string>("CoursePresentationTypesCode")
-                        .HasColumnType("nvarchar(2)")
-                        .HasColumnName("CoursePresentationTypeCode");
+                        .HasColumnType("nvarchar(2)");
 
-                    b.HasKey("CoursesCourseId", "LookupTypeId", "CoursePresentationTypeCode");
+                    b.HasKey("CoursesCourseId", "CoursePresentationTypesLookupTypeId", "CoursePresentationTypesCode");
 
-                    b.HasIndex("LookupTypeId", "CoursePresentationTypeCode");
+                    b.HasIndex("CoursePresentationTypesLookupTypeId", "CoursePresentationTypesCode");
 
                     b.ToTable("_coursesPresentationTypes", (string)null);
                 });

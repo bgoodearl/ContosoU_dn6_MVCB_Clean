@@ -68,7 +68,7 @@ Script-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp -From C
 Script-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp -From CU6_M04_AddLookups -To CU6_M04a_Course_CPT -output .\SqlScripts\Schema\CU6_M04a_Course_CPT.sql
 ```
 
-# CU6_M05b_Department_DFT
+# CU6_M04b_Department_DFT
 
 Add-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp CU6_M04b_Department_DFT
 Script-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp -From CU6_M04a_Course_CPT -To CU6_M04b_Department_DFT -output .\SqlScripts\Schema\CU6_M04b_Department_DFT_idempotent.sql -Idempotent

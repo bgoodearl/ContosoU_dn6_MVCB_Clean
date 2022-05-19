@@ -9,11 +9,11 @@ namespace ContosoUniversity.Models.Lookups
             LookupTypeId = (short)CULookupTypes.DepartmentFacilityType;
         }
 
-        private ICollection<Department> _departments;
-        public virtual ICollection<Department> Departments
-        {
-            get { return _departments ?? (_departments = new List<Department>()); }
-            protected set { _departments = value; }
-        }
+        //private ICollection<Department> _departments;
+        //public virtual ICollection<Department> Departments
+        //{
+        //    get { return _departments ?? (_departments = new List<Department>()); }
+        //    protected set { _departments = value; }
+        //}
     }
 }
