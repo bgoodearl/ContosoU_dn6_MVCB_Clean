@@ -31,41 +31,45 @@ Get-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp
 
 ### First Migration
 
+#### CU6_M01_ExistingSchemaBase_2022
 ```powershell
-# CU6_M01_ExistingSchemaBase_2022
-
 Add-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp CU6_M01_ExistingSchemaBase_2022
 Script-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp -From 0 -To CU6_M01_ExistingSchemaBase_2022 -output .\SqlScripts\Schema\CU6_M01_ExistingSchemaBase_2022_idempotent.sql -Idempotent
 Script-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp -From 0 -To CU6_M01_ExistingSchemaBase_2022 -output .\SqlScripts\Schema\CU6_M01_ExistingSchemaBase_2022.sql
 ```
 
 ### Additional Migrations
+#### CU6_M02_AddEnrollment
 ```powershell
-# CU6_M02_AddEnrollment
-
 Add-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp CU6_M02_AddEnrollment
 Script-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp -From CU6_M01_ExistingSchemaBase_2022 -To CU6_M02_AddEnrollment -output .\SqlScripts\Schema\CU6_M02_AddEnrollment_idempotent.sql -Idempotent
 Script-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp -From CU6_M01_ExistingSchemaBase_2022 -To CU6_M02_AddEnrollment -output .\SqlScripts\Schema\CU6_M02_AddEnrollment.sql
+```
 
-# CU6_M03_AddCourseInstructorLink
-
+#### CU6_M03_AddCourseInstructorLink
+```powershell
 Add-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp CU6_M03_AddCourseInstructorLink
 Script-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp -From CU6_M02_AddEnrollment -To CU6_M03_AddCourseInstructorLink -output .\SqlScripts\Schema\CU6_M03_AddCourseInstructorLink_idempotent.sql -Idempotent
 Script-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp -From CU6_M02_AddEnrollment -To CU6_M03_AddCourseInstructorLink -output .\SqlScripts\Schema\CU6_M03_AddCourseInstructorLink.sql
 ```
 
-# CU6_M04_AddLookups
-
+#### CU6_M04_AddLookups
+```powershell
 Add-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp CU6_M04_AddLookups
 Script-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp -From CU6_M03_AddCourseInstructorLink -To CU6_M04_AddLookups -output .\SqlScripts\Schema\CU6_M04_AddLookups_idempotent.sql -Idempotent
 Script-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp -From CU6_M03_AddCourseInstructorLink -To CU6_M04_AddLookups -output .\SqlScripts\Schema\CU6_M04_AddLookups.sql
 ```
 
-# CU6_M04a_Course_CPT
-
+#### CU6_M04a_Course_CPT
+```powershell
 Add-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp CU6_M04a_Course_CPT
 Script-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp -From CU6_M04_AddLookups -To CU6_M04a_Course_CPT -output .\SqlScripts\Schema\CU6_M04a_Course_CPT_idempotent.sql -Idempotent
 Script-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp -From CU6_M04_AddLookups -To CU6_M04a_Course_CPT -output .\SqlScripts\Schema\CU6_M04a_Course_CPT.sql
+```
+
+#### CU6_M04b_Course_CPT_fix
+```powershell
+Add-Migration -Project CU.Infrastructure -StartupProject CU.EFDataApp CU6_M04b_Course_CPT_fix
 ```
 
 #### What's in Migrations
@@ -77,3 +81,4 @@ CU6_M02_AddEnrollment           | added Enrollment table with links to Course an
 CU6_M03_AddCourseInstructorLink | added many-to-many link between Course and Instructor
 CU6_M04_AddLookups              | added 2 lookup types with single table xLookups2cKey
 CU6_M04a_Course_CPT             | adds many-to-many join between Course and CoursePresentationType
+CU6_M04b_Course_CPT_fix         | fixes join table column names
