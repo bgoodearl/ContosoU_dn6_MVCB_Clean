@@ -76,7 +76,9 @@ ContosoUniversity.Components    | Blazor components for ContosoUniversity
 ContosoUniversity.Models        | Persistent Data Object Models (Domain)
 CU.Application                  | Application specific code
 CU.Application.Common           | Interfaces allowing use of the Repository
+CU.Application.Data.Common      | Interface for DbContext
 CU.Application.Shared           | Interfaces and Classes shared among multiple CU projects
+CU.EFDataApp                    | Web app used when running migrations
 CU.Infrastructure               | Infrastructure, including Entity Framework DbContext, Repositories, and Migrations
 CU.SharedKernel                 | Classes shared among multiple app projects
 CU.ApplicationIntegrationTests  | 
