@@ -20,7 +20,7 @@ namespace CU.Application.Data.Common.Interfaces
         DbSet<LookupType> LookupTypes { get; }
 
         DbSet<CoursePresentationType> CoursePresentationTypes { get; }
-        //DbSet<DepartmentFacilityType> DepartmentFacilityTypes { get; }
+        DbSet<DepartmentFacilityType> DepartmentFacilityTypes { get; }
         DbSet<RandomLookupType> RandomLookupTypes { get; }
 
         #endregion Lookups

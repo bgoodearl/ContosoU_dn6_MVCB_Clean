@@ -49,7 +49,7 @@ namespace CU.Infrastructure.Persistence
             LookupTypes = Set<LookupType>();
 
             CoursePresentationTypes = Set<CoursePresentationType>();
-            //DepartmentFacilityTypes = Set<DepartmentFacilityType>();
+            DepartmentFacilityTypes = Set<DepartmentFacilityType>();
             RandomLookupTypes = Set<RandomLookupType>();
 
             #endregion Lookups
@@ -86,7 +86,7 @@ namespace CU.Infrastructure.Persistence
         public DbSet<LookupType> LookupTypes { get; private set; }
 
         public DbSet<CoursePresentationType> CoursePresentationTypes { get; private set; }
-        //public DbSet<DepartmentFacilityType> DepartmentFacilityTypes { get; private set; }
+        public DbSet<DepartmentFacilityType> DepartmentFacilityTypes { get; private set; }
         public DbSet<RandomLookupType> RandomLookupTypes { get; private set; }
 
         #endregion Lookups

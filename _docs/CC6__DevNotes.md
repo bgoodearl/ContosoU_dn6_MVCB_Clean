@@ -12,6 +12,8 @@
             Recreated migration CU6_M04a_Course_CPT
             adding Entity Course HasMany CoursePresentationTypes
             to match schema from .NET Core 3.1 / EF 6.4 implementation<br/>
+            Added DepartmentFacilityType and many-to-many from
+            Department to DepartmentFacilityType with migration CU6_M04b_Department_DFT<br/>
 		</td>
     </tr>
     <tr>

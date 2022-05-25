@@ -60,6 +60,25 @@ namespace CU.Infrastructure.Persistence
                 e.Property(d => d.StartDate).HasColumnType("datetime");
                 e.HasOne(d => d.Administrator).WithMany()
                     .HasForeignKey(d => d.InstructorID).IsRequired(false).OnDelete(DeleteBehavior.Restrict);
+
+                e.HasMany(d => d.DepartmentFacilityTypes).WithMany(df => df.Departments)
+                    .UsingEntity(
+                        join => join
+                            .HasOne(typeof(DepartmentFacilityType))
+                            .WithMany()
+                            .HasForeignKey("DepartmentFacilityTypesLookupTypeId", "DepartmentFacilityTypesCode"),
+                        join => join
+                            .HasOne(typeof(Department))
+                            .WithMany()
+                            .HasForeignKey("DepartmentsDepartmentID"),
+                        join =>
+                        {
+                            join.ToTable("_departmentsFacilityTypes")
+                                .Property<int>("DepartmentsDepartmentID").HasColumnName("DepartmentID");
+                            join.Property<short>("DepartmentFacilityTypesLookupTypeId").HasColumnName("LookupTypeId");
+                            join.Property<string>("DepartmentFacilityTypesCode").HasColumnName("DepartmentFacilityTypeCode");
+                        }
+                    );
             });
 
             modelBuilder.Entity<Enrollment>(e =>
@@ -118,7 +137,7 @@ namespace CU.Infrastructure.Persistence
 
                 e.HasDiscriminator<short>(x => x.SubType)
                     .HasValue<CoursePresentationType>((short)CULookupTypes.CoursePresentationType)
-                    //.HasValue<DepartmentFacilityType>((short)CULookupTypes.DepartmentFacilityType)
+                    .HasValue<DepartmentFacilityType>((short)CULookupTypes.DepartmentFacilityType)
                     .HasValue<RandomLookupType>((short)CULookupTypes.RandomLookupType)
                 ;
 
