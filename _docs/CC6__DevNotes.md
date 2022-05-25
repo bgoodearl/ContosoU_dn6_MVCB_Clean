@@ -6,6 +6,15 @@
 		<th>Notes</th>
     </tr>
     <tr>
+        <td>5/24/2022</td><td>bg</td>
+		<td>
+            Branch - with_lookups2b:<br/>
+            Recreated migration CU6_M04a_Course_CPT
+            adding Entity Course HasMany CoursePresentationTypes
+            to match schema from .NET Core 3.1 / EF 6.4 implementation<br/>
+		</td>
+    </tr>
+    <tr>
         <td>5/18/2022</td><td>bg</td>
 		<td>
             Branch - with_lookups2: backed out migration CU6_M04_AddLookups<br/>

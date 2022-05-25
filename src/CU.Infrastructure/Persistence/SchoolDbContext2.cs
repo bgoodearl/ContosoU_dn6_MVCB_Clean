@@ -34,8 +34,21 @@ namespace CU.Infrastructure.Persistence
 
                 e.HasMany(e => e.CoursePresentationTypes).WithMany(p => p.Courses)
                     .UsingEntity(
-                        join => join.ToTable("_coursesPresentationTypes")
-                            .Property<int>("CoursesCourseId").HasColumnName("CourseID")
+                        join => join
+                            .HasOne(typeof(CoursePresentationType))
+                            .WithMany()
+                            .HasForeignKey("CoursePresentationTypesLookupTypeId", "CoursePresentationTypesCode"),
+                        join => join
+                            .HasOne(typeof(Course))
+                            .WithMany()
+                            .HasForeignKey("CoursesCourseId"),
+                        join =>
+                        {
+                            join.ToTable("_coursesPresentationTypes")
+                                .Property<int>("CoursesCourseId").HasColumnName("CourseID");
+                            join.Property<short>("CoursePresentationTypesLookupTypeId").HasColumnName("LookupTypeId");
+                            join.Property<string>("CoursePresentationTypesCode").HasColumnName("CoursePresentationTypeCode");
+                        }
                     );
             });
 
