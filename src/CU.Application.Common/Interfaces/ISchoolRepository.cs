@@ -15,6 +15,7 @@ namespace CU.Application.Common.Interfaces
         Task<List<IdItem>> GetCourseInstructorsNoTrackingAsync(int courseID);
         Task<CourseListItem?> GetCourseListItemNoTrackingAsync(int courseID);
         Task<List<CourseListItem>> GetCourseListItemsNoTrackingAsync();
+        Task<List<CodeItem>> GetCoursePresentationTypesNoTrackingAsync(int courseID);
         IQueryable<Course> GetCoursesQueryable();
         Task<List<DepartmentListItem>> GetDepartmentListItemsNoTrackingAsync();
         IQueryable<Department> GetDepartmentsQueryable();

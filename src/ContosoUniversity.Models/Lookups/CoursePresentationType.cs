@@ -9,7 +9,7 @@ namespace ContosoUniversity.Models.Lookups
             LookupTypeId = (short)CULookupTypes.CoursePresentationType;
         }
 
-        private ICollection<Course> _courses;
+        private ICollection<Course>? _courses;
         public virtual ICollection<Course> Courses
         {
             get { return _courses ?? (_courses = new List<Course>()); }

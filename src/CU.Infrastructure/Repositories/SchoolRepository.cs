@@ -129,6 +129,28 @@ namespace CU.Infrastructure.Repositories
             return courses;
         }
 
+        public async Task<List<CodeItem>> GetCoursePresentationTypesNoTrackingAsync(int courseID)
+        {
+            CM.Course? course = await SchoolDbContext.Courses
+                .Include(c => c.CoursePresentationTypes)
+                .AsNoTracking()
+                .Where(c => c.CourseID == courseID)
+                .SingleOrDefaultAsync();
+            if (course != null)
+            {
+                List<CodeItem> presentationTypesList = course.CoursePresentationTypes
+                    .OrderBy(p => p.Name)
+                    .Select(p => new CodeItem
+                    {
+                        Code = p.Code,
+                        Name = p.Name
+                    })
+                    .ToList();
+                return presentationTypesList;
+            }
+            return new List<CodeItem>();
+        }
+
         public async Task<List<DepartmentListItem>> GetDepartmentListItemsNoTrackingAsync()
         {
             List<DepartmentListItem> departments = await SchoolDbContext.Departments

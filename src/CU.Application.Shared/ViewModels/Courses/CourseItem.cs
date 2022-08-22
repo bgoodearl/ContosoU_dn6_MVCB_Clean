@@ -6,6 +6,7 @@ namespace CU.Application.Shared.ViewModels.Courses
     {
         public CourseItem()
         {
+            PresentationTypes = new List<CodeItem>();
             Instructors = new List<IdItem>();
         }
 
@@ -27,6 +28,14 @@ namespace CU.Application.Shared.ViewModels.Courses
             Instructors = instructors;
         }
 
+        public void SetPresentationTypes(List<CodeItem> presentationTypes)
+        {
+            Guard.Against.Null(presentationTypes, nameof(presentationTypes));
+            PresentationTypes = presentationTypes;
+        }
+
         public List<IdItem> Instructors { get; private set; }
+
+        public List<CodeItem> PresentationTypes { get; private set; }
     }
 }

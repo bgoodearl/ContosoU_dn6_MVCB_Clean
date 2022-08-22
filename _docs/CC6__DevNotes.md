@@ -6,6 +6,14 @@
 		<th>Notes</th>
     </tr>
     <tr>
+        <td>8/22/2022</td><td>bg</td>
+		<td>
+            Merged branch with_lookups2b to master<br/>
+            Added PresentationTypes to CourseItem (details)<br/>
+            Added additional integration tests for Courses<br/>
+		</td>
+    </tr>
+    <tr>
         <td>5/24/2022</td><td>bg</td>
 		<td>
             Branch - with_lookups2b:<br/>

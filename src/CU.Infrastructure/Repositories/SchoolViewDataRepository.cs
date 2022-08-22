@@ -70,6 +70,7 @@ namespace CU.Infrastructure.Repositories
                 {
                     course = new CourseItem(listItem);
                     course.SetInstructors(await repo.GetCourseInstructorsNoTrackingAsync(courseID));
+                    course.SetPresentationTypes(await repo.GetCoursePresentationTypesNoTrackingAsync(courseID));
                 }
                 return course;
             }
