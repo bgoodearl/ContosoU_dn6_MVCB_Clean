@@ -4,6 +4,7 @@ using CU.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CU.Infrastructure.Migrations
 {
     [DbContext(typeof(SchoolDbContext))]
-    partial class SchoolDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220519042924_CU6_M04_AddLookups")]
+    partial class CU6_M04_AddLookups
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -225,27 +227,6 @@ namespace CU.Infrastructure.Migrations
                     b.ToTable("Student", (string)null);
                 });
 
-            modelBuilder.Entity("CourseCoursePresentationType", b =>
-                {
-                    b.Property<int>("CoursesCourseId")
-                        .HasColumnType("int")
-                        .HasColumnName("CourseID");
-
-                    b.Property<short>("CoursePresentationTypesLookupTypeId")
-                        .HasColumnType("smallint")
-                        .HasColumnName("LookupTypeId");
-
-                    b.Property<string>("CoursePresentationTypesCode")
-                        .HasColumnType("nvarchar(2)")
-                        .HasColumnName("CoursePresentationTypeCode");
-
-                    b.HasKey("CoursesCourseId", "CoursePresentationTypesLookupTypeId", "CoursePresentationTypesCode");
-
-                    b.HasIndex("CoursePresentationTypesLookupTypeId", "CoursePresentationTypesCode");
-
-                    b.ToTable("_coursesPresentationTypes", (string)null);
-                });
-
             modelBuilder.Entity("CourseInstructor", b =>
                 {
                     b.Property<int>("CourseID")
@@ -261,39 +242,11 @@ namespace CU.Infrastructure.Migrations
                     b.ToTable("CourseInstructor", (string)null);
                 });
 
-            modelBuilder.Entity("DepartmentDepartmentFacilityType", b =>
-                {
-                    b.Property<int>("DepartmentsDepartmentID")
-                        .HasColumnType("int")
-                        .HasColumnName("DepartmentID");
-
-                    b.Property<short>("DepartmentFacilityTypesLookupTypeId")
-                        .HasColumnType("smallint")
-                        .HasColumnName("LookupTypeId");
-
-                    b.Property<string>("DepartmentFacilityTypesCode")
-                        .HasColumnType("nvarchar(2)")
-                        .HasColumnName("DepartmentFacilityTypeCode");
-
-                    b.HasKey("DepartmentsDepartmentID", "DepartmentFacilityTypesLookupTypeId", "DepartmentFacilityTypesCode");
-
-                    b.HasIndex("DepartmentFacilityTypesLookupTypeId", "DepartmentFacilityTypesCode");
-
-                    b.ToTable("_departmentsFacilityTypes", (string)null);
-                });
-
             modelBuilder.Entity("ContosoUniversity.Models.Lookups.CoursePresentationType", b =>
                 {
                     b.HasBaseType("ContosoUniversity.Models.Lookups.LookupBaseWith2cKey");
 
                     b.HasDiscriminator().HasValue((short)1);
-                });
-
-            modelBuilder.Entity("ContosoUniversity.Models.Lookups.DepartmentFacilityType", b =>
-                {
-                    b.HasBaseType("ContosoUniversity.Models.Lookups.LookupBaseWith2cKey");
-
-                    b.HasDiscriminator().HasValue((short)2);
                 });
 
             modelBuilder.Entity("ContosoUniversity.Models.Lookups.RandomLookupType", b =>
@@ -354,21 +307,6 @@ namespace CU.Infrastructure.Migrations
                     b.Navigation("Instructor");
                 });
 
-            modelBuilder.Entity("CourseCoursePresentationType", b =>
-                {
-                    b.HasOne("ContosoUniversity.Models.Course", null)
-                        .WithMany()
-                        .HasForeignKey("CoursesCourseId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ContosoUniversity.Models.Lookups.CoursePresentationType", null)
-                        .WithMany()
-                        .HasForeignKey("CoursePresentationTypesLookupTypeId", "CoursePresentationTypesCode")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("CourseInstructor", b =>
                 {
                     b.HasOne("ContosoUniversity.Models.Course", null)
@@ -384,21 +322,6 @@ namespace CU.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired()
                         .HasConstraintName("FK_CourseInstructor_Instructor");
-                });
-
-            modelBuilder.Entity("DepartmentDepartmentFacilityType", b =>
-                {
-                    b.HasOne("ContosoUniversity.Models.Department", null)
-                        .WithMany()
-                        .HasForeignKey("DepartmentsDepartmentID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ContosoUniversity.Models.Lookups.DepartmentFacilityType", null)
-                        .WithMany()
-                        .HasForeignKey("DepartmentFacilityTypesLookupTypeId", "DepartmentFacilityTypesCode")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("ContosoUniversity.Models.Course", b =>

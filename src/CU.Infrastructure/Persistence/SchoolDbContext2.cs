@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ContosoUniversity.Models;
+using ContosoUniversity.Models.Lookups;
+using CU.Definitions.Lookups;
 
 namespace CU.Infrastructure.Persistence
 {
@@ -29,6 +31,25 @@ namespace CU.Infrastructure.Persistence
                             j.HasKey("CourseID", "InstructorID");
                             j.ToTable("CourseInstructor");
                         });
+
+                e.HasMany(e => e.CoursePresentationTypes).WithMany(p => p.Courses)
+                    .UsingEntity(
+                        join => join
+                            .HasOne(typeof(CoursePresentationType))
+                            .WithMany()
+                            .HasForeignKey("CoursePresentationTypesLookupTypeId", "CoursePresentationTypesCode"),
+                        join => join
+                            .HasOne(typeof(Course))
+                            .WithMany()
+                            .HasForeignKey("CoursesCourseId"),
+                        join =>
+                        {
+                            join.ToTable("_coursesPresentationTypes")
+                                .Property<int>("CoursesCourseId").HasColumnName("CourseID");
+                            join.Property<short>("CoursePresentationTypesLookupTypeId").HasColumnName("LookupTypeId");
+                            join.Property<string>("CoursePresentationTypesCode").HasColumnName("CoursePresentationTypeCode");
+                        }
+                    );
             });
 
             modelBuilder.Entity<Department>(e =>
@@ -39,6 +60,25 @@ namespace CU.Infrastructure.Persistence
                 e.Property(d => d.StartDate).HasColumnType("datetime");
                 e.HasOne(d => d.Administrator).WithMany()
                     .HasForeignKey(d => d.InstructorID).IsRequired(false).OnDelete(DeleteBehavior.Restrict);
+
+                e.HasMany(d => d.DepartmentFacilityTypes).WithMany(df => df.Departments)
+                    .UsingEntity(
+                        join => join
+                            .HasOne(typeof(DepartmentFacilityType))
+                            .WithMany()
+                            .HasForeignKey("DepartmentFacilityTypesLookupTypeId", "DepartmentFacilityTypesCode"),
+                        join => join
+                            .HasOne(typeof(Department))
+                            .WithMany()
+                            .HasForeignKey("DepartmentsDepartmentID"),
+                        join =>
+                        {
+                            join.ToTable("_departmentsFacilityTypes")
+                                .Property<int>("DepartmentsDepartmentID").HasColumnName("DepartmentID");
+                            join.Property<short>("DepartmentFacilityTypesLookupTypeId").HasColumnName("LookupTypeId");
+                            join.Property<string>("DepartmentFacilityTypesCode").HasColumnName("DepartmentFacilityTypeCode");
+                        }
+                    );
             });
 
             modelBuilder.Entity<Enrollment>(e =>
@@ -71,6 +111,39 @@ namespace CU.Infrastructure.Persistence
             });
 
             #endregion School Entities
+
+
+            //*******************************************
+            #region LookupBaseWith2cKey Subclass Mappings
+
+            modelBuilder.Entity<LookupType>(e =>
+            {
+                e.HasKey(x => x.Id);
+                e.ToTable("xLookupTypes");
+            });
+
+            modelBuilder.Entity<LookupBaseWith2cKey>(e =>
+            {
+                e.HasKey(l => new { l.LookupTypeId, l.Code });
+                e.ToTable("xLookups2cKey");
+
+                e.Property(x => x.Code).HasMaxLength(2).IsRequired();
+                e.Property(x => x.Name).HasMaxLength(100).IsRequired();
+
+                e.HasIndex(l => new { l.LookupTypeId, l.Name }).IsUnique(true)
+                    .HasDatabaseName("LookupTypeAndName");
+
+                e.Property(l => l.SubType).HasColumnName("_SubType");
+
+                e.HasDiscriminator<short>(x => x.SubType)
+                    .HasValue<CoursePresentationType>((short)CULookupTypes.CoursePresentationType)
+                    .HasValue<DepartmentFacilityType>((short)CULookupTypes.DepartmentFacilityType)
+                    .HasValue<RandomLookupType>((short)CULookupTypes.RandomLookupType)
+                ;
+
+            });
+
+            #endregion LookupBaseWith2cKey Subclass Mappings
         }
     }
 }

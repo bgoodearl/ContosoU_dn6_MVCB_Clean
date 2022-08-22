@@ -6,6 +6,40 @@
 		<th>Notes</th>
     </tr>
     <tr>
+        <td>5/24/2022</td><td>bg</td>
+		<td>
+            Branch - with_lookups2b:<br/>
+            Recreated migration CU6_M04a_Course_CPT
+            adding Entity Course HasMany CoursePresentationTypes
+            to match schema from .NET Core 3.1 / EF 6.4 implementation<br/>
+            Added DepartmentFacilityType and many-to-many from
+            Department to DepartmentFacilityType with migration CU6_M04b_Department_DFT<br/>
+		</td>
+    </tr>
+    <tr>
+        <td>5/18/2022</td><td>bg</td>
+		<td>
+            Branch - with_lookups2: backed out migration CU6_M04_AddLookups<br/>
+            Commented out DepartmentFacilityType, added RandomLookupType so there are at least 2 lookups<br/>
+            Ran migration CU6_M04_AddLookups, generated SQL scripts for migration<br/>
+            Added seeding of lookup data, tweaked SeedData in CoursesController<br/>
+            Added changes necessary for migration CU6_M04a_Course_CPT, updated diagram<br/>
+		</td>
+    </tr>
+    <tr>
+        <td>5/17/2022</td><td>bg</td>
+		<td>
+            Started experiments with many-to-many Course and CoursePresentationType<br/>
+		</td>
+    </tr>
+    <tr>
+        <td>5/16/2022</td><td>bg</td>
+		<td>
+            Branch - with_lookups:
+            Added CoursePresentationType and DepartmentFacilityType<br/>
+		</td>
+    </tr>
+    <tr>
         <td>5/9/2022</td><td>bg</td>
 		<td>
             Fix problem with first instructor's courses<br/>
