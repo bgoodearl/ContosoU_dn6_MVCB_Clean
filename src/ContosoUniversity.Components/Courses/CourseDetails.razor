@@ -37,6 +37,15 @@
                 @i.Name<br/>
             }
         </dd>
+        <dt class="col-sm-2">
+            Presentation Type(s)
+        </dt>
+        <dd>
+            @foreach(CodeItem c in Course.PresentationTypes)
+            {
+                <span>@c.Code: @c.Name</span><br/>
+            }
+        </dd>
     </dl>
 </div>
 }
