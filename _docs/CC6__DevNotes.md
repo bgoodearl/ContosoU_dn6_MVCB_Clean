@@ -6,6 +6,14 @@
 		<th>Notes</th>
     </tr>
     <tr>
+        <td>7/30/2023</td><td>bg</td>
+        <td>
+            NuGet package updates<br/>
+            Fixed issue displaying courses when instructor has none<br/>
+            Tweaks for MediatR v12<br/>
+        </td>
+    </tr>
+    <tr>
         <td>8/22/2022</td><td>bg</td>
 		<td>
             Merged branch with_lookups2b to master<br/>
@@ -177,7 +185,7 @@
     </tr>
     <tr>
         <td></td><td></td>
-		<td>
-		</td>
+        <td>
+        </td>
     </tr>
 </table>

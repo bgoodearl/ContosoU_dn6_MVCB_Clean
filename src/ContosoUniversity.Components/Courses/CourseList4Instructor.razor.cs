@@ -18,6 +18,7 @@ namespace ContosoUniversity.Components.Courses
 #pragma warning restore CS8618
 
         protected bool Loading { get; set; }
+        protected bool ListDisplayed { get; set; }
 
         private int? InstructorIDSaved { get; set; }
 
@@ -42,8 +43,13 @@ namespace ContosoUniversity.Components.Courses
                 }
                 else
                 {
-                    Logger.LogInformation($"CourseList.LoadDataFromDb Instr ID = {InstructorID} itemCount = {CourseItemList.Count()}");
-                    await InvokeAsync(() => StateHasChanged()); //Needed to get first instructor's courses to load
+                    int courseItemCount = CourseItemList.Count();
+                    Logger.LogInformation($"CourseList.LoadDataFromDb Instr ID = {InstructorID} itemCount = {courseItemCount}");
+                    if (!ListDisplayed || (courseItemCount > 0))
+                    {
+                        ListDisplayed = true;
+                        await InvokeAsync(() => StateHasChanged()); //Needed to get first instructor's courses to load
+                    }
                 }
             }
             catch (Exception ex)
@@ -67,6 +73,10 @@ namespace ContosoUniversity.Components.Courses
                 {
                     shouldLoad = (Mediator != null) && !Loading;
                 }
+            }
+            if (shouldLoad && (InstructorIDSaved.HasValue && (InstructorIDSaved.Value != InstructorID)))
+            {
+                ListDisplayed = false;
             }
 
             if (Logger != null) { Logger.LogDebug($"CourseList4Instr.OnAfterRenderAsync: First Render == {firstRender}, shouldLoad={shouldLoad}, InstId = {InstructorID}, InstIdSaved = {InstructorIDSaved}"); }

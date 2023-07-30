@@ -44,3 +44,6 @@
 
 [Testing MediatR Registrations](https://matthiaslischka.at/2019/02/25/Testing-MediatR-Registrations/)
 (c. Feb 2019)
+
+[Why I don't use MediatR for CQRS](https://cezarypiatek.github.io/post/why-i-dont-use-mediatr-for-cqrs/)
+(c. Dec 2021)
